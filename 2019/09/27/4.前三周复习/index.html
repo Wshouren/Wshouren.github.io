@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="1、ES6和ES5区别 ES6新语法 let/const let不存在变量提升(变量不允许在声明之前使用) let不允许重复声明 在全局作用域中let变量不是window属性，和它没关系 typeof 未被声明的变量不是undefined而是报错(暂时性死区) let会形成块级作用域   解构赋值 …拓展、展开、剩余运算符 箭头函数 没有arguments，但是可以基于…arg获取实参集合(结果是">
+<meta property="og:type" content="article">
+<meta property="og:title">
+<meta property="og:url" content="http://yoursite.com/2019/09/27/4.前三周复习/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="1、ES6和ES5区别 ES6新语法 let/const let不存在变量提升(变量不允许在声明之前使用) let不允许重复声明 在全局作用域中let变量不是window属性，和它没关系 typeof 未被声明的变量不是undefined而是报错(暂时性死区) let会形成块级作用域   解构赋值 …拓展、展开、剩余运算符 箭头函数 没有arguments，但是可以基于…arg获取实参集合(结果是">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-20T15:37:57.294Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title">
+<meta name="twitter:description" content="1、ES6和ES5区别 ES6新语法 let/const let不存在变量提升(变量不允许在声明之前使用) let不允许重复声明 在全局作用域中let变量不是window属性，和它没关系 typeof 未被声明的变量不是undefined而是报错(暂时性死区) let会形成块级作用域   解构赋值 …拓展、展开、剩余运算符 箭头函数 没有arguments，但是可以基于…arg获取实参集合(结果是">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/27/4.前三周复习/">
+
+
+
+
+
+  <title> | </title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title"></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/4.前三周复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王首人">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-27T16:01:04+08:00">
+                2019-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1、ES6和ES5区别"><a href="#1、ES6和ES5区别" class="headerlink" title="1、ES6和ES5区别"></a>1、ES6和ES5区别</h3><ol>
+<li>ES6新语法<ol>
+<li>let/const<ol>
+<li>let不存在变量提升(变量不允许在声明之前使用)</li>
+<li>let不允许重复声明</li>
+<li>在全局作用域中let变量不是window属性，和它没关系</li>
+<li>typeof 未被声明的变量不是undefined而是报错(暂时性死区)</li>
+<li>let会形成块级作用域</li>
+</ol>
+</li>
+<li>解构赋值</li>
+<li>…拓展、展开、剩余运算符</li>
+<li>箭头函数<ol>
+<li>没有arguments，但是可以基于…arg获取实参集合(结果是一个数组)</li>
+<li>没有自己的this，this是上下文中的this，箭头函数this不能被改变</li>
+</ol>
+</li>
+<li>``模板字符串</li>
+<li>Promise(async/await)</li>
+<li>class(ES6中创建类的)</li>
+<li>interator(for of循环)</li>
+<li>Map/Set</li>
+</ol>
+</li>
+</ol>
+<p>###2、请你说出重排(回流)和重绘读写分离的理解</p>
+<p>浏览器渲染一个页面的时候是按照“先创建DOM树-&gt;再加载css-&gt;生成渲染树 render tree-&gt;把渲染树交给浏览器（GPU）进行绘制”，如果我们修改了元素的样式（但是没有修改大小和位置），浏览器会把当前元素重新生成渲染树，然后再重新渲染，这个机制是重绘，但是一旦元素的位置或者大小等发生改变，浏览器就要从DOM树重新计算渲染，这个机制是重排，不论是重排还是重绘都非常的消耗性能</p>
+<p>解决方案：</p>
+<ol>
+<li>需要动态向页面追加元素的时候，基于文档碎片或者把需要增加的所有元素拼接成字符串，最后统一进行增加</li>
+<li>读写分离：把要修改的样式都放在一起执行，新版本浏览器都有一个自己检测的机制，如果发现下面紧挨着的操作也是修改元素的样式，会把所有修改的事先存起来，知道遇到非修改样式的操作，会把之前存储的统一执行，只引发一次回流和重绘</li>
+</ol>
+<h3 id="3、用户昵称规定只能是”数字、大小写字母”组成，而且不能少于2位，也不能超过20位，写一个正则匹配这个需求"><a href="#3、用户昵称规定只能是”数字、大小写字母”组成，而且不能少于2位，也不能超过20位，写一个正则匹配这个需求" class="headerlink" title="3、用户昵称规定只能是”数字、大小写字母”组成，而且不能少于2位，也不能超过20位，写一个正则匹配这个需求"></a>3、用户昵称规定只能是”数字、大小写字母”组成，而且不能少于2位，也不能超过20位，写一个正则匹配这个需求</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg=<span class="regexp">/^[0-9a-zA-Z]&#123;2,20&#125;$/</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、谈谈你对面向对象的理解"><a href="#4、谈谈你对面向对象的理解" class="headerlink" title="4、谈谈你对面向对象的理解"></a>4、谈谈你对面向对象的理解</h3><ol>
+<li>js本身就是面向对象编程的<ol>
+<li>js本身就是面向对象（oop）编程思想开发出来的语言，我们学习js就是在学习js中的类和实例，例如：</li>
+<li>数组是Array的实例、对象是Object的实例、函数是Function的实例…在这些内置类的原型上有很多公共的属性和方法，这些方法可以被很多实例调用</li>
+</ol>
+</li>
+<li>面向对象真实项目的应用<ol>
+<li>平时的业务逻辑开发，我没有刻意使用类的方式来做，只有在一些组件或者插件封装的时候才会基于构造函数和原型链使用类和实例完成，例如：我之前封装过一些TAB页卡、轮播图、摸态框、表单验证等插件，就是这样处理的（我之前看了                                                                                                                                                                                                                                                                                                                                                                                                                                             一些类库和插件的源码，也都是基于面向对象封装的 ）</li>
+</ol>
+</li>
+<li>面向对象的一些语法和特点<ol>
+<li>所谓面向对象就是基于class或者function创建一个类，执行的时候new执行创建一个实例，这样实例就可以调取类上提供的方法，想要基于面向对象进行插件封装，必须掌握关于类的继承、封装和多态，封装就是提供公共的方法，js中没有严格意义的多态，不能进行方法的重写，常用的继承方式有很多，例如：原型继承、call、继承、寄生组合继承、es6中的继承等，有些方式会存在一些问题，我项目中后来都是基于class中的extend实现继承的</li>
+</ol>
+</li>
+</ol>
+<h3 id="5、this"><a href="#5、this" class="headerlink" title="5、this"></a>5、this</h3><ol>
+<li>给元素的某个事件绑定方法，方法中的THIS都是当前操作的元素本身</li>
+<li>函数执行，看函数前面是否有点，有的话，点前面是谁THIS就是谁，没有点，THIS是WINDOW（在JS的严格模式下，没有点THIS是UNDEFINED</li>
+<li>构造函数执行，方法中的this一般都是当前类的实例</li>
+<li>箭头函数中没有自己的THIS,THIS是上下文中的THIS</li>
+<li>在小括号表达式中，会影响THIS的指向</li>
+<li>使用call/apply/bind可以改变this指向，非严格模式下call/apply/bind第一个参数不写或者写null和undefined，this都是window，严格模式下写谁this就是谁，不写是undefined</li>
+</ol>
+<h3 id="6、谈一下你对作用域链和原型链的理解"><a href="#6、谈一下你对作用域链和原型链的理解" class="headerlink" title="6、谈一下你对作用域链和原型链的理解"></a>6、谈一下你对作用域链和原型链的理解</h3><ol>
+<li><p><strong>作用域链</strong><br>函数执行会形成一个私有的作用域，形参和在当前私有作用域中声明的变量都是私有变量，当前的私有作用域有自我保护机制，私有变量和外界是没有关系的，但是如果私有作用域中遇到一个非私有的变量，则向它的上级作用域找，如果还不是上级作用域私有的，则继续向上查找，一直找到window为止。这种变量一层层向上查找的机制就是“作用域链机制”</p>
+</li>
+<li><p>*<em>原型链 *</em></p>
+<p>它也是一种查找机制，实例首先在自己的私有属性中进行属性的查找，如果不是私有属性，基于<strong>proto</strong> 向所属类的原型上进行查找，如果在找不到，则继续基于<strong>proto</strong> 向上查找，一直找到Object.prototype为止，例如：obj.hasOwnProperty() 这里调取的hasOwnProperty这个属性就是找到Object.prototype才找到的</p>
+</li>
+</ol>
+<p>###7、说出你所熟知的算法</p>
+<ol>
+<li><p><strong>递归</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//=&gt;需求：在1~100之间获取即是3也是5的倍数（也就是15的倍数）的和</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &gt; <span class="number">100</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (n % <span class="number">15</span> === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> n + fn(n + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fn(n + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fn(<span class="number">1</span>));<span class="comment">//=&gt;315</span></span><br><span class="line"></span><br><span class="line"><span class="comment">///=&gt;数组扁平化(多维数组=&gt;一维数组)</span></span><br><span class="line"><span class="keyword">let</span> ary = [<span class="number">1</span>, [<span class="number">2</span>, [<span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>]]], [<span class="number">6</span>, <span class="number">7</span>, [<span class="number">8</span>, <span class="number">9</span>, [<span class="number">11</span>, <span class="number">12</span>]], <span class="number">10</span>]];  <span class="comment">//=&gt;[1,2,3,4,5,6]</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"><span class="keyword">let</span> str = <span class="built_in">JSON</span>.stringify(ary);</span><br><span class="line"> str = str.replace(<span class="regexp">/(\[|\])/g</span>, <span class="string">''</span>);</span><br><span class="line"> str = <span class="string">'['</span> + str + <span class="string">']'</span>;</span><br><span class="line"> ary = <span class="built_in">JSON</span>.parse(str);</span><br><span class="line"> <span class="built_in">console</span>.log(ary);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result = [],</span><br><span class="line">    fn = <span class="function"><span class="keyword">function</span> (<span class="params">ary</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (ary.length === <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; ary.length; i++) &#123;</span><br><span class="line">            <span class="keyword">let</span> item = ary[i];</span><br><span class="line">            <span class="keyword">if</span> (item <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</span><br><span class="line">                fn(item);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                result.push(item);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">fn(ary);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="8、继承"><a href="#8、继承" class="headerlink" title="8、继承"></a>8、继承</h3><ol>
+<li><strong>原型继承</strong>(让子类的原型指向父类的一个实例)</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//=&gt;原型继承：让子类的原型指向父类的一个实例</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.x = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line">A.prototype = &#123;</span><br><span class="line">    <span class="keyword">constructor</span>: A,</span><br><span class="line">    getX: function () &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.y = <span class="number">200</span>;</span><br><span class="line">&#125;</span><br><span class="line">B.prototype = <span class="keyword">new</span> A();</span><br><span class="line"><span class="keyword">let</span> f = <span class="keyword">new</span> B();</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p><strong>call继承</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//=&gt;CALL继承：把父类A做为普通函数执行，让A中的THIS变为B的实例，相当于给B的实例增加一些属性和方法（弊端：把父类A当做普通函数执行，和父类原型没啥关系了，仅仅是把A中的私有属性变为子类B实例的私有属性而已，A原型上的公有属性方法和B及它的实例没啥关系）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//new A() 把A作为类创建它的实例 this:实例</span></span><br><span class="line"><span class="comment">//A() 把A作为普通函数执行 this:window</span></span><br><span class="line"><span class="comment">// function A() &#123;</span></span><br><span class="line"><span class="comment">//     //=&gt;this:f</span></span><br><span class="line"><span class="comment">//     this.x = 100; //=&gt;f.x=100</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// A.prototype = &#123;</span></span><br><span class="line"><span class="comment">//     constructor: A,</span></span><br><span class="line"><span class="comment">//     getX: function () &#123;</span></span><br><span class="line"><span class="comment">//         console.log(this.x);</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;;</span></span><br><span class="line"><span class="comment">// function B() &#123;</span></span><br><span class="line"><span class="comment">//     //=&gt;this:f</span></span><br><span class="line"><span class="comment">//     A.call(this);//=&gt;call继承  把A执行，让A中的this变为f</span></span><br><span class="line"><span class="comment">//     this.y = 200;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// let f = new B();</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p><strong>寄生组合继承</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//=&gt;寄生组合继承：A的私有变为B的私有，A的公有变为B的公有</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// function A() &#123;</span></span><br><span class="line"><span class="comment">//     this.x = 100;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// A.prototype = &#123;</span></span><br><span class="line"><span class="comment">//     constructor: A,</span></span><br><span class="line"><span class="comment">//     getX: function () &#123;</span></span><br><span class="line"><span class="comment">//         console.log(this.x);</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;;</span></span><br><span class="line"><span class="comment">// function B() &#123;</span></span><br><span class="line"><span class="comment">//     A.call(this);//=&gt;基于CALL把A的私有变为B的私有  f.x=100</span></span><br><span class="line"><span class="comment">//     this.y = 200;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// // B.prototype = A.prototype; //=&gt;一般都不这样处理，因为这种模式可以轻易修改父类A原型上的东西（重写“太方便”了），这样会导致A的其它实例也受到影响</span></span><br><span class="line"><span class="comment">// B.prototype=Object.create(A.prototype);</span></span><br><span class="line"><span class="comment">// let f = new B();</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Object.create：内置Object类天生自带的方法</span></span><br><span class="line"><span class="comment"> *   1.创建一个空对象</span></span><br><span class="line"><span class="comment"> *   2.让新创建的空对象的__proto__指向第一个传递进来的对象（把OBJ作为新创建空对象的原型）</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// let obj=&#123;</span></span><br><span class="line"><span class="comment">//     name:'哈哈'</span></span><br><span class="line"><span class="comment">// &#125;;</span></span><br><span class="line"><span class="comment">// console.log(Object.create(obj));</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p><strong>ES6中class类实现继承</strong></p>
+<ol>
+<li>ES6中创建类是有自己标准语法的（这种语法创建出来的类只能NEW执行，不能当做普通函数执行）</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fn</span> </span>&#123;<span class="comment">//=&gt;Fn是类名，没有小括号</span></span><br><span class="line">    <span class="keyword">constructor</span>(n, m) &#123;</span><br><span class="line">        <span class="comment">//=&gt;等价于传统ES5类的构造体</span></span><br><span class="line">        <span class="keyword">this</span>.x = n;</span><br><span class="line">        <span class="keyword">this</span>.y = m;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//=&gt;给Fn的原型上设置方法（只能设置方法不能设置属性）</span></span><br><span class="line">    getX() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//=&gt;把Fn当做一个普通对象设置的私有方法（和实例没有关系），同样也只能设置方法不能写属性</span></span><br><span class="line">    <span class="keyword">static</span> AA()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>ES6中的继承</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="keyword">this</span>.x = <span class="number">100</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getX() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;<span class="comment">//=&gt;extends类似于实现了原型继承</span></span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="keyword">super</span>();<span class="comment">//=&gt;类似于CALL继承：在这里SUPER相当于把A的CONSTRUCTOR给执行了，并且让方法中的THIS是B的实例，SUPER当中传递的实参都是在给A的CONSTRUCTOR传递</span></span><br><span class="line">        <span class="keyword">this</span>.y = <span class="number">200</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getY() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> f = <span class="keyword">new</span> B();</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="5">
+<li>…</li>
+</ol>
+<h3 id="9、谈谈你对jquery的理解"><a href="#9、谈谈你对jquery的理解" class="headerlink" title="9、谈谈你对jquery的理解"></a>9、谈谈你对jquery的理解</h3><p>JQ是一个JS类库，里面提供了很多的常用方法，有助于我们快速开发，而且这些方法是兼容所有浏览器的（V2 / V3 不兼容低版本浏览器）<br>我之前在学习原生JS的时候，或多或少的看了一部分JQ源码，刚毕业的时候JQ用的比较多，但是最近两年一直都在用框架开发，JQ中常用的方法忘差不多了。之前看源码的时候，发现JQ就是一个类，而$()就是创建这个类的一个实例，这个实例是基于内置方法makeArray创造的类数组<br>JQ提供的方法有两部分，一部分是放到原型上的，供实例调取使用，一部分是放到对象上的，直接$.xxx调取使用，想要后期自己扩展方法（包括基于JQ写插件），都可以基于extend这个方法向JQ中扩展<br>JQ中提供了动画、事件、AJAX等常用的方法，我学习JQ源码的时候比较注重里面的一些封装和编程的思想，例如：发布订阅这种设计模式我就是依据JQ的$.Callbacks学习研究的，所以学习JQ给我带来了很多的好处…</p>
+<p>###10、谈谈你对闭包的理解</p>
+<p>闭包是JS中一个非常重要的机制，我们很多编程思想、业务逻辑、设计模式都是基于闭包完成的，先说一下我对闭包的理解：闭包就是函数执行产生一个私有的作用域（不销毁），在这个作用域中的私有变量和外界互不干扰，而且作用域（栈）不销毁，这些私有变量存储的值也都保存下来了，所有整体来说闭包就是为了保护和保存变量的<br>实际项目开发中，很多地方使用到了闭包，例如：<br>1.循环事件绑定，由于事件绑定是异步编程的，我们此时在循环的时候把索引存储起来（可以基于自定义属性存储，也可以基于闭包存储），后期需要使用的时候，向上级作用域查找使用即可<br>2.平时做业务逻辑的时候，我一般都是基于单例模式来管理代码的，这种单例的构建就应用到了闭包。还有很多地方也应用了闭包，但是闭包比较占内存，我会尽量减少对它的使用，但是有些需求必须要用</p>
+<p>###11、把’<a href="http://www.zhufengpeixun.cn:80/stu/index.html?name=xxx&amp;age=9#teatcher&#39;解析为对象" target="_blank" rel="noopener">http://www.zhufengpeixun.cn:80/stu/index.html?name=xxx&amp;age=9#teatcher&#39;解析为对象</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'http://www.zhufengpeixun.cn:80/stu/index.html?name=xxx&amp;age=9#teatcher'</span>;</span><br><span class="line"><span class="keyword">let</span> link = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">link.href = str;</span><br><span class="line"><span class="keyword">let</span> &#123;hash, hostname, pathname, protocol, search, port&#125; = link;</span><br><span class="line"><span class="comment">//=&gt;端口号：如果没有值，则使用默认端口（HTTP:80 HTTPS:443 FTP:21）</span></span><br><span class="line"><span class="keyword">if</span> (!port) &#123;</span><br><span class="line">    <span class="keyword">switch</span> (protocol) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'https:'</span>:</span><br><span class="line">            port = <span class="number">443</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'ftp'</span>:</span><br><span class="line">            port = <span class="number">21</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            port = <span class="number">80</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//=&gt;QUERY</span></span><br><span class="line"><span class="keyword">let</span> query = &#123;&#125;;</span><br><span class="line"><span class="keyword">if</span> (search) &#123;<span class="comment">//=&gt;search:"?name=xxx&amp;age=9"</span></span><br><span class="line">    search.replace(<span class="regexp">/([^?=&amp;]+)=([^?=&amp;]+)/g</span>, (...arg) =&gt; &#123;</span><br><span class="line">        <span class="keyword">let</span> [, key, value] = arg;</span><br><span class="line">        query[key] = value;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result = &#123;</span><br><span class="line">    protocol,<span class="comment">//=&gt;protocol:protocol</span></span><br><span class="line">    hostname,</span><br><span class="line">    port,</span><br><span class="line">    pathname,</span><br><span class="line">    search,</span><br><span class="line">    hash,</span><br><span class="line">    query</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+
+<h3 id="12、图片延迟加载"><a href="#12、图片延迟加载" class="headerlink" title="12、图片延迟加载"></a>12、图片延迟加载</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> $container = $(<span class="string">'.container'</span>),</span><br><span class="line">        $imgList = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1.先绑定数据</span></span><br><span class="line">    ~<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> str = <span class="string">``</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">let</span> ran = <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random() * <span class="number">3</span> + <span class="number">1</span>);</span><br><span class="line">            str += <span class="string">`&lt;div class="imgBox"&gt;</span></span><br><span class="line"><span class="string">            &lt;img src="" alt="" data-src="img/banner<span class="subst">$&#123;ran&#125;</span>.jpg"&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        $container.html(str);</span><br><span class="line"></span><br><span class="line">        $imgList = $container.find(<span class="string">'img'</span>);</span><br><span class="line">    &#125;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.加载真实的图片</span></span><br><span class="line">    <span class="comment">//=&gt;lazyImg:单张图片延迟加载(传递给我谁,我就加载谁)</span></span><br><span class="line">    <span class="keyword">let</span> lazyImg = <span class="function"><span class="params">curImg</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> $curImg = $(curImg),</span><br><span class="line">            trueImg = $curImg.attr(<span class="string">'data-src'</span>);</span><br><span class="line">        <span class="keyword">let</span> tempImg = <span class="keyword">new</span> Image();</span><br><span class="line">        tempImg.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// $curImg.attr('src', trueImg).css(&#123;</span></span><br><span class="line">            <span class="comment">//     display: 'block'</span></span><br><span class="line">            <span class="comment">// &#125;);</span></span><br><span class="line">            $curImg.attr(<span class="string">'src'</span>, trueImg)</span><br><span class="line">                .stop().fadeIn(<span class="number">300</span>);<span class="comment">//=&gt;结束当前正在运行的动画,执行FADE-IN,让图片300MS内渐现出来(JQ中提供的动画方法)</span></span><br><span class="line">            tempImg = <span class="literal">null</span>;</span><br><span class="line">            curImg.isLoad = <span class="literal">true</span>;<span class="comment">//=&gt;图片加载成功后，设置一个自定义属性存储当前图片已经加载了，后期不需要重复的加载</span></span><br><span class="line">        &#125;;</span><br><span class="line">        tempImg.src = trueImg;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//=&gt;computedImg:计算哪张图片可以加载了</span></span><br><span class="line">    <span class="keyword">let</span> computedImg = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//=&gt;观察所有图片中谁能加载了，就执行LAZY-IMG让其加载即可</span></span><br><span class="line">        $imgList.each(<span class="function">(<span class="params">index, curImg</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">//=&gt;A:当前图片所在盒子的底边距离BODY偏移</span></span><br><span class="line">            <span class="comment">//=&gt;B:当前浏览器底边距离BODY偏移</span></span><br><span class="line">            <span class="keyword">let</span> $curImg = $(curImg),</span><br><span class="line">                $imgBox = $curImg.parent(),</span><br><span class="line">                A = $imgBox.offset().top + $imgBox.outerHeight(),</span><br><span class="line">                B = <span class="built_in">document</span>.documentElement.scrollTop + <span class="built_in">document</span>.documentElement.clientHeight;</span><br><span class="line">            <span class="keyword">if</span> (A &lt;= B) &#123;</span><br><span class="line">                <span class="comment">//=&gt;代表图片所在盒子呈现在视野中，开始加载真实的图片</span></span><br><span class="line">                <span class="keyword">if</span> (curImg.isLoad) &#123;</span><br><span class="line">                    <span class="comment">//=&gt;当前图片如果已经加载过了，不在重复的加载</span></span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                lazyImg(curImg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">    $(<span class="built_in">window</span>).on(<span class="string">'load scroll'</span>, computedImg);<span class="comment">//=&gt;LOAD和SCROLL的时候做相同的事情（JQ中的事件绑定特点）</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="13、把类似于-f-g-h-x-这种写法简化成-compose-f-g-h-x"><a href="#13、把类似于-f-g-h-x-这种写法简化成-compose-f-g-h-x" class="headerlink" title="13、把类似于 f(g(h(x))) 这种写法简化成 compose(f, g, h)(x)"></a>13、把类似于 f(g(h(x))) 这种写法简化成 compose(f, g, h)(x)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 柯理化函数编程思想</span></span><br><span class="line"><span class="comment"> *   1.执行一个方法，传递一些参数进去，首先形成一个不销毁的栈，把传递的这些值存储起来（没有立即使用，属于预先存储一下）</span></span><br><span class="line"><span class="comment"> *   2.返回一个小函数给栈外面</span></span><br><span class="line"><span class="comment"> *   3.当执行返回的小函数时候，把之前第一步预先存储的信息拿过来使用（作用域链、闭包等机制完成的）</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *   我们把JS中基于闭包实现的预先存储的思想成为 “柯理化函数思想”</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> compose = <span class="function">(<span class="params">...arg</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//=&gt;arg:[div2, mul3, add1, add1]</span></span><br><span class="line">    arg = arg.reverse();<span class="comment">//=&gt;[add1, add1,mul3,div2]</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">val</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//=&gt;val:0</span></span><br><span class="line">        arg.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">            val = item(val);</span><br><span class="line">            <span class="comment">//第一次 add1(0) =&gt;1  =&gt;val=1</span></span><br><span class="line">            <span class="comment">//第二次 add1(1) =&gt;2  =&gt;val=2</span></span><br><span class="line">            <span class="comment">//第三次 mul3(2) ...</span></span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> fn = compose(div2, mul3, add1, add1);</span><br><span class="line"><span class="built_in">console</span>.log(fn(<span class="number">0</span>));<span class="comment">//=&gt;div2(mul3(add1(add1(0))))</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/27/3.Dom盒子模型、JQ/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/27/5.定时器、异步、动画库、轮播/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="王首人">
+          <p class="site-author-name" itemprop="name">王首人</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、ES6和ES5区别"><span class="nav-number">1.</span> <span class="nav-text">1、ES6和ES5区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、用户昵称规定只能是”数字、大小写字母”组成，而且不能少于2位，也不能超过20位，写一个正则匹配这个需求"><span class="nav-number">2.</span> <span class="nav-text">3、用户昵称规定只能是”数字、大小写字母”组成，而且不能少于2位，也不能超过20位，写一个正则匹配这个需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、谈谈你对面向对象的理解"><span class="nav-number">3.</span> <span class="nav-text">4、谈谈你对面向对象的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、this"><span class="nav-number">4.</span> <span class="nav-text">5、this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、谈一下你对作用域链和原型链的理解"><span class="nav-number">5.</span> <span class="nav-text">6、谈一下你对作用域链和原型链的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、继承"><span class="nav-number">6.</span> <span class="nav-text">8、继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9、谈谈你对jquery的理解"><span class="nav-number">7.</span> <span class="nav-text">9、谈谈你对jquery的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12、图片延迟加载"><span class="nav-number">8.</span> <span class="nav-text">12、图片延迟加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13、把类似于-f-g-h-x-这种写法简化成-compose-f-g-h-x"><span class="nav-number">9.</span> <span class="nav-text">13、把类似于 f(g(h(x))) 这种写法简化成 compose(f, g, h)(x)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王首人</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

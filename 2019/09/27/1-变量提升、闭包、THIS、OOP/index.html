@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="变量提升、闭包、THIS、OOP1、Node Node安装 下载安装https://nodejs.org/zh-cn 配置环境变量(添加node安装目录) 验证 node -v node –version npm -v     Node概念 基于v8引擎渲染js的工具 执行js代码 cmd     node xxx.js WB中右键run REPL(输入求值输出循环):cmd     输入NODE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1.变量提升、闭包、THIS、OOP">
+<meta property="og:url" content="http://yoursite.com/2019/09/27/1-变量提升、闭包、THIS、OOP/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="变量提升、闭包、THIS、OOP1、Node Node安装 下载安装https://nodejs.org/zh-cn 配置环境变量(添加node安装目录) 验证 node -v node –version npm -v     Node概念 基于v8引擎渲染js的工具 执行js代码 cmd     node xxx.js WB中右键run REPL(输入求值输出循环):cmd     输入NODE">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-27T07:57:35.980Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1.变量提升、闭包、THIS、OOP">
+<meta name="twitter:description" content="变量提升、闭包、THIS、OOP1、Node Node安装 下载安装https://nodejs.org/zh-cn 配置环境变量(添加node安装目录) 验证 node -v node –version npm -v     Node概念 基于v8引擎渲染js的工具 执行js代码 cmd     node xxx.js WB中右键run REPL(输入求值输出循环):cmd     输入NODE">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/27/1-变量提升、闭包、THIS、OOP/">
+
+
+
+
+
+  <title>1.变量提升、闭包、THIS、OOP | </title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title"></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/1-变量提升、闭包、THIS、OOP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王首人">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">1.变量提升、闭包、THIS、OOP</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-27T15:48:50+08:00">
+                2019-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="变量提升、闭包、THIS、OOP"><a href="#变量提升、闭包、THIS、OOP" class="headerlink" title="变量提升、闭包、THIS、OOP"></a>变量提升、闭包、THIS、OOP</h2><h3 id="1、Node"><a href="#1、Node" class="headerlink" title="1、Node"></a>1、Node</h3><ol>
+<li><strong>Node安装</strong><ol>
+<li>下载安装<a href="https://nodejs.org/zh-cn" target="_blank" rel="noopener">https://nodejs.org/zh-cn</a></li>
+<li>配置环境变量(添加node安装目录)</li>
+<li>验证<ol>
+<li>node -v</li>
+<li>node –version</li>
+<li>npm -v</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>Node概念</strong><ol>
+<li>基于v8引擎渲染js的工具</li>
+<li>执行js代码<ol>
+<li>cmd     node xxx.js</li>
+<li>WB中右键run</li>
+<li>REPL(输入求值输出循环):cmd     输入NODE回车 </li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>NPM模块管理(安装node自带)</strong><ol>
+<li>官网下载(速度慢)<ul>
+<li>npm install xxx     下载到当前目录</li>
+<li>npm install xxx -g      下载到全局</li>
+<li>npm uninstall xxx</li>
+<li>npm uninstall xxx -g</li>
+<li>npm view jQuery&gt;xxx.xxx     输出模块版本信息到文件</li>
+</ul>
+</li>
+<li>nrm切换下载源<ul>
+<li>npm install nrm -g</li>
+<li>nrm ls   查看可用源</li>
+<li>nrm use xxx   使用某个源</li>
+<li>切完源还是基于npm安装操作</li>
+</ul>
+</li>
+<li>使用yarn下载(速度最快，不能安装全局)<ul>
+<li>npm install yarn -g</li>
+<li>yarn add xxx</li>
+<li>yarn add <a href="mailto:xxx@x.x.x" target="_blank" rel="noopener">xxx@x.x.x</a>    下载固定版本</li>
+<li>yarn remove xxx</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="2、gitHub"><a href="#2、gitHub" class="headerlink" title="2、gitHub"></a>2、gitHub</h3><ol>
+<li><strong>特点</strong><ol>
+<li>分布式代码管理系统</li>
+<li>记录代码所有版本</li>
+<li>方便回退某个版本</li>
+<li>检测代码冲突，合并代码</li>
+</ol>
+</li>
+<li><strong>创建仓库</strong><ul>
+<li>配置基础信息<ul>
+<li>$ git config -l</li>
+<li>$ git config –global user.name  xxx</li>
+<li>$ git config –global user.email  xxx</li>
+</ul>
+</li>
+<li>$ git init     创建空仓库 会生成.git隐藏文件</li>
+<li>创建.gitignore文件，储存git提交时忽略的内容</li>
+</ul>
+</li>
+<li><strong>工作原理和操作</strong><ul>
+<li>三个区域<ul>
+<li>工作区：编辑代码</li>
+<li>暂存区：存储临时代码</li>
+<li>历史区：生成代码版本</li>
+</ul>
+</li>
+<li>本地操作<ul>
+<li>$ git add . 或  git add -A      工作区到暂存区   </li>
+<li>$ git commit -m’备注信息’      暂存区到历史区     </li>
+<li>$ git log     查看版本信息</li>
+<li>$ git diff     比较 工作区 暂存区</li>
+<li>$ git diff master     比较 工作区 历史区</li>
+<li>$ git diff –cached     比较 暂存区 历史区</li>
+</ul>
+</li>
+<li>git和gitHub同步<ul>
+<li>$ git remote -v     查看关联信息</li>
+<li>$ git remote add xxx  [远程仓库地址]       建立关联</li>
+<li>$ git remote remove xxx     移除关联</li>
+<li>$ git pull xxx(关联名) xxx(远程仓库分支)    拉取信息</li>
+<li>$ git push xxx(关联名) xxx(远程仓库分支)    推送</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>真实项目开发流程</strong><ol>
+<li>leader建立远程仓库、</li>
+<li>git init</li>
+<li>git clone [远程仓库地址]</li>
+<li>git add . </li>
+<li>git commit -m</li>
+<li>git pull</li>
+<li>git push</li>
+</ol>
+</li>
+</ol>
+<p>###3、变量提升</p>
+<ol>
+<li><p><strong>概念</strong></p>
+<ol>
+<li><p>作用域形成后先进行变量提升（函数是先进行形参赋值）</p>
+</li>
+<li><p>var提前声明，function提前定义</p>
+</li>
+<li><p>全局作用域下声明一个变量，相当于给window设置一个属性，变量的值就是属性值，修改一方的值另一方会改变，存在映射关系</p>
+</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=b=<span class="number">3</span>;<span class="comment">//b不带var</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">3</span>,b=<span class="number">2</span>;<span class="comment">//b带var</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>只对等号左边进行变量提升</p>
+</li>
+<li><p>当前作用域下，不管条件成立否，都进行变量提升，且var和function都只声明（老版本浏览器function会定义），执行到条件成立时形成块级作用域，第一件事是变量提升（条件里面function会先定义）</p>
+</li>
+<li><p>名字重复了会重新赋值（不管变量提升还是代码执行）</p>
+</li>
+</ol>
+</li>
+<li><p><strong>作用域链</strong>：</p>
+<ul>
+<li>如果当前作用域中没有这个私有变量，会向上级作用域查找，一直找到window为止，如果window也没有，则把变量添加到window属性中。</li>
+<li>函数的上级作用域只和他在哪里创建的有关</li>
+</ul>
+</li>
+<li><p><strong>let</strong></p>
+<ul>
+<li><p>let不存在变量提升，切断了全局变量和window属性映射机制</p>
+</li>
+<li><p>代码执行前，浏览器会做重复性检测（词法分析）自上而下查找当前作用域下所有变量，let不允许在同一个作用域下重复定义变量</p>
+</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">    <span class="comment">//这里会形成5个作用域，i是每个作用域中的私有变量0,1,2,3,4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>js堆栈内存释放</strong></p>
+<ul>
+<li>堆内存释放：让所有引用堆内存地址的变量赋值为null即可</li>
+<li>栈内存释放：函数执行完会释放所形成的作用域，但当函数的栈内存中有内存被以外的某个变量占用了，此时栈内存不会释放，全局栈内存只会在浏览器关闭时释放</li>
+</ul>
+</li>
+</ol>
+<h3 id="4、arguments对象"><a href="#4、arguments对象" class="headerlink" title="4、arguments对象"></a>4、arguments对象</h3><ol>
+<li><strong>概念</strong>：arguments是函数的一个内置属性，他的值是一个类数组。</li>
+<li><strong>arguments对象的长度</strong>是由实参个数决定（即使这个值传递的是undefined）。</li>
+<li>对于arguments和值都存在的情况下，两者值是同步的，但是针对其中一个无值的情况下，对于此无值的情形值不会得以同步。 </li>
+</ol>
+<h3 id="4、闭包"><a href="#4、闭包" class="headerlink" title="4、闭包"></a>4、闭包</h3><ol>
+<li><p><strong>概念</strong>：形成一个不销毁的私有作用域，保护里面的私有变量不受外界干扰。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b=(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><strong>异步和同步</strong><ul>
+<li>同步：一件一件的做，当前这件事没完成，下一个任务不能处理。</li>
+<li>异步：一件一件的做，当前这件事没完成，继续下一个任务。</li>
+</ul>
+</li>
+</ol>
+<h3 id="5、this"><a href="#5、this" class="headerlink" title="5、this"></a>5、this</h3><ol>
+<li><strong>规律</strong><ul>
+<li>事件绑定，this是当前操作的对象</li>
+<li>普通函数执行，函数前有.，前面是谁this就是谁，没有点this是window</li>
+<li>自执行函数中的this是window</li>
+<li>构造函数执行，this指向实例</li>
+</ul>
+</li>
+</ol>
+<p>###6、OOP</p>
+<ol>
+<li><p><strong>创建对象</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> n=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">this</span>.m=<span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">Fn();<span class="comment">//普通函数执行</span></span><br><span class="line"><span class="keyword">var</span> f1=<span class="keyword">new</span> Fn()；<span class="comment">//f1=&#123;m:20&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>基于函数（类）创建实例，会在函数执行时创建一个堆内存，存放对象，函数中只有this和这个对象有关系</li>
+<li>基于函数（类）创建实例，函数的返回默认值是对象，不是undefined</li>
+<li>如果指定返回值，当返回值是基本类型，还是返回对象，返回值是引用类型会返回引用类型</li>
+</ul>
+</li>
+<li><p><strong>单例设计模式</strong>：每一个命名空间都是JS中Object这个内置基类的实例，而实例之间是相互独立互不干扰的，所以我们称它为“单例：单独的实例”</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person2=&#123;</span><br><span class="line">    name:<span class="string">"刘司南"</span>,</span><br><span class="line">    age:<span class="number">81</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> nameSpace = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> n = <span class="number">12</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        fn: fn,</span><br><span class="line">        sum: sum</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p><strong>对象属性的检测</strong></p>
+<ol>
+<li>instanceof:判断某个实例是否隶属于这个类</li>
+<li>in：检测当前对象是否存在某个属性（公、私）</li>
+<li>hasOwnProperty:检测当前属性是否为对象的私有属性</li>
+</ol>
+</li>
+</ol>
+<h3 id="7、原型和原型链"><a href="#7、原型和原型链" class="headerlink" title="7、原型和原型链"></a>7、原型和原型链</h3><ol>
+<li><strong>概念</strong><ol>
+<li>所有函数自带一个属性：prototype，属性值是一个对象,存储供实例调用的公共方法（如果当前对象没有这个属性，会向他所属类上的prototype上查找，如果也没有，会向所属类上的prototype上的proto上查找…）</li>
+<li>这个对象自带属性constructor,属性值是函数本身</li>
+<li>每个对象自带_ <em>proto</em> _的属性，这个属性指向当前实例所属类的prototype(如果不能确定他是谁的实例，都是Object的实例)</li>
+</ol>
+</li>
+<li><strong>进阶</strong><ul>
+<li>可以重定向类的prototype，需要定义constructor</li>
+<li>不能重定向内置类的prototype</li>
+</ul>
+</li>
+</ol>
+<p>###8、练习</p>
+<ol>
+<li><p><strong>如何实现数组去重？（乐视TV）</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.myUnique=<span class="function"><span class="keyword">function</span> <span class="title">myUnique</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj=&#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.length;)&#123;</span><br><span class="line">        <span class="keyword">var</span> item=<span class="keyword">this</span>[i];</span><br><span class="line">        <span class="keyword">if</span>(obj.hasOwnProperty(item))				    &#123;</span><br><span class="line">            <span class="comment">//性能较好，但可能会改变数组的顺序</span></span><br><span class="line">            <span class="keyword">this</span>[i]=<span class="keyword">this</span>[<span class="keyword">this</span>.length<span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">this</span>.length--;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            obj[item]=<span class="literal">null</span>;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    obj=<span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p><strong>以下代码的功能是要实现为5个input按钮循环绑定click点击事件，绑定完成后点击1、2、3、4、5五个按钮分别会alert输出0、1、2、3、4五个字符。（腾讯）</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"btnBox"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"button"</span> value=<span class="string">"button_1"</span> /&gt;</span><br><span class="line">    &lt;input type=<span class="string">"button"</span> value=<span class="string">"button_2"</span> /&gt;</span><br><span class="line">    &lt;input type=<span class="string">"button"</span> value=<span class="string">"button_3"</span> /&gt;</span><br><span class="line">    &lt;input type=<span class="string">"button"</span> value=<span class="string">"button_4"</span> /&gt;</span><br><span class="line">    &lt;input type=<span class="string">"button"</span> value=<span class="string">"button_5"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script type="text/</span>javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">    var btnBox=document.getElementById('btnBox'),</span></span><br><span class="line"><span class="string">       inputs=btnBox.getElementsByTagName('input');</span></span><br><span class="line"><span class="string">    var l=inputs.length;</span></span><br><span class="line"><span class="string">    for(var i=0;i&lt;l;i++)&#123;</span></span><br><span class="line"><span class="string">        inputs[i].onclick=function()&#123;</span></span><br><span class="line"><span class="string">            alert(i);</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol>
+<li><p>请问如上代码是否能实现？</p>
+<ul>
+<li>答：不行，事件绑定是“异步编程”，当触发点击行为，绑定的方法执行的时候，外层循环已经结束；方法执行产生私有作用域，用到变量i，不是私有的变量，按照“作用域链”的查找机制，找到的是全局下的i（此时全局的i已经成为循环最后一次的结果）</li>
+</ul>
+</li>
+<li><p>如果不能实现那么现在的效果是什么样的？</p>
+<ul>
+<li>答：每个按钮点击后弹窗显示’4’</li>
+</ul>
+</li>
+<li><p>应该做怎样的修改才能达到我们想要的效果，并说明原理？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="keyword">var</span> btnBox=<span class="built_in">document</span>.getElementById(<span class="string">'btnBox'</span>),</span><br><span class="line">       inputs=btnBox.getElementsByTagName(<span class="string">'input'</span>);</span><br><span class="line">    <span class="keyword">var</span> l=inputs.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;l;i++)&#123;</span><br><span class="line">        <span class="comment">//ES6中使用LET创建变量，会形成块级作用域，每轮循环都有一个自己的块级作用域，把后续需要用到的索引i存储到自己的作用域中</span></span><br><span class="line">        inputs[i].onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            alert(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<ol start="3">
+<li><p><strong>用友面试题</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fullName=<span class="string">'language'</span>;</span><br><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">        fullName:<span class="string">'javascript'</span>,</span><br><span class="line">        prop:&#123;</span><br><span class="line">            getFullName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">this</span>.fullName;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj.prop.getFullName());</span><br><span class="line"><span class="keyword">var</span> test=obj.prop.getFullName;</span><br><span class="line"><span class="built_in">console</span>.log(test());</span><br><span class="line"><span class="keyword">var</span> name=<span class="string">'window'</span>;</span><br><span class="line"><span class="keyword">var</span> Tom=&#123;</span><br><span class="line">       name:<span class="string">"Tom"</span>,</span><br><span class="line">        show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">        &#125;,</span><br><span class="line">    wait:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> fun=<span class="keyword">this</span>.show;</span><br><span class="line">            fun();</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line">Tom.wait();</span><br><span class="line"><span class="comment">//undefined</span></span><br><span class="line">	<span class="comment">//language</span></span><br><span class="line">    <span class="comment">//window</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>*<em>阿里超经典面试题（有难度） *</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line">Foo.getName = <span class="function"><span class="keyword">function</span> <span class="title">BBB</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;;</span><br><span class="line">Foo.prototype.getName = <span class="function"><span class="keyword">function</span> <span class="title">AAA</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Foo.getName();<span class="comment">//=&gt;2 把Foo当做一个对象，找Foo的私有方法执行</span></span><br><span class="line">getName();<span class="comment">//=&gt;4 执行全局下的GET-NAME</span></span><br><span class="line">Foo().getName();<span class="comment">//=&gt;1 先把FOO当做普通函数执行,执行返回的结果在调取GET-NAME执行</span></span><br><span class="line">getName();<span class="comment">//=&gt;1 执行的依然是全局下的GET-NAME</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Foo.getName());;<span class="comment">//=&gt;A:(Foo.getName) =&gt;new A()  =&gt;2</span></span><br><span class="line"><span class="keyword">new</span> Foo().getName();<span class="comment">//=&gt;B:new Foo() =&gt;B.getName() =&gt;3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="keyword">new</span> Foo().getName());<span class="comment">//=&gt;C:new Foo() =&gt;new C[Foo的实例].getName() =&gt;D:C.getName =&gt;new D(); =&gt;3  (先计算new Foo()创建一个实例f，然后new f.getName()，先找到f.getName，在把这个函数new一下，最后其实相当于把f.getName当做一个类，返回这个类的一个实例)</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="5">
+<li><p>*<em>腾讯面试题 *</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.a=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.b=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                alert(<span class="keyword">this</span>.a);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">fun.prototype=&#123;</span><br><span class="line">        b:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.a=<span class="number">20</span>;</span><br><span class="line">            alert(<span class="keyword">this</span>.a);</span><br><span class="line">        &#125;,</span><br><span class="line">    c:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.a=<span class="number">30</span>;</span><br><span class="line">            alert(<span class="keyword">this</span>.a)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> my_fun=<span class="keyword">new</span> fun();</span><br><span class="line">my_fun.b();<span class="comment">//0</span></span><br><span class="line">my_fun.c();<span class="comment">//30</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="6">
+<li><p>*<em>document.parentNode 和 document.parentnode 的区别？（腾讯） *</em></p>
+<p>答：document.parentNode值是null，document.parentnode 值是undefined</p>
+</li>
+<li><p>*<em>怎么规避多人开发函数重名的问题？（百度搜索） *</em></p>
+<p>答：基于js单例设计模式的机制实现模块化开发。</p>
+</li>
+<li><p>*<em>你理解的闭包作用是什么，优缺点？（乐视） *</em></p>
+<p>答：闭包是通过函数执行形成一个不销毁的私有作用域，可以保护里面的私有变量不受外界干扰，缺点是比较占内存。</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/26/0-javascript基础知识/" rel="next" title="'0.javascript基础知识'">
+                <i class="fa fa-chevron-left"></i> '0.javascript基础知识'
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/27/2.原型深入、THIS、商城排序、正则/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="王首人">
+          <p class="site-author-name" itemprop="name">王首人</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量提升、闭包、THIS、OOP"><span class="nav-number">1.</span> <span class="nav-text">变量提升、闭包、THIS、OOP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、Node"><span class="nav-number">1.1.</span> <span class="nav-text">1、Node</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、gitHub"><span class="nav-number">1.2.</span> <span class="nav-text">2、gitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、arguments对象"><span class="nav-number">1.3.</span> <span class="nav-text">4、arguments对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、闭包"><span class="nav-number">1.4.</span> <span class="nav-text">4、闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、this"><span class="nav-number">1.5.</span> <span class="nav-text">5、this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、原型和原型链"><span class="nav-number">1.6.</span> <span class="nav-text">7、原型和原型链</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王首人</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
