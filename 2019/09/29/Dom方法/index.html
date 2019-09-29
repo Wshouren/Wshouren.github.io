@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>分类 | </title>
+  <title>[Dom方法] | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="获取DOM元素 getElementById（上下文只能是document） getElementsByTagName（返回元素集合HTMLCollection） getElementsByClassName（同上，不兼容IE6-8） getElementsByName">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Dom方法]">
+<meta property="og:url" content="http://yoursite.com/2019/09/29/Dom方法/index.html">
 <meta property="og:site_name">
+<meta property="og:description" content="获取DOM元素 getElementById（上下文只能是document） getElementsByTagName（返回元素集合HTMLCollection） getElementsByClassName（同上，不兼容IE6-8） getElementsByName">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-27T07:19:48.096Z">
+<meta property="og:updated_time" content="2019-09-29T11:55:50.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="[Dom方法]">
+<meta name="twitter:description" content="获取DOM元素 getElementById（上下文只能是document） getElementsByTagName（返回元素集合HTMLCollection） getElementsByClassName（同上，不兼容IE6-8） getElementsByName">
   
     <link rel="alternative" href="/atom.xml" title type="application/atom+xml">
   
@@ -157,27 +160,83 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-Dom方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      分类
+      [Dom方法]
     </h1>
   
 
         
-        <a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2019-09-27T07:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-27</time>
+        <a href="/2019/09/29/Dom方法/" class="archive-article-date">
+  	<time datetime="2019-09-29T11:33:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="获取DOM元素"><a href="#获取DOM元素" class="headerlink" title="获取DOM元素"></a><strong>获取DOM元素</strong></h3><ol>
+<li>getElementById（上下文只能是document）</li>
+<li>getElementsByTagName（返回元素集合HTMLCollection）</li>
+<li>getElementsByClassName（同上，不兼容IE6-8）</li>
+<li>getElementsByName<a id="more"></a>（上下文只能是document）</li>
+<li>querySelector(类似CSS选择器,只获取一个，不兼容IE6~8)</li>
+<li>querySelectorAll(类似CSS选择器,获取所有，不兼容IE6~8)</li>
+<li>document.head(head)</li>
+<li>document.body(body)</li>
+<li>document.documentElement(html)</li>
+</ol>
+<h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a><strong>节点</strong></h3><blockquote>
+<p>在一个HTML文档中出现的所有东西都是节点 元素节点（HTML标签）<br>文本节点（文字内容） 注释节点（注释内容） 文档节点（document）<br>…每一种类型的节点都会有一些属性区分自己的特性和特征<br>nodeType：节点类型</p>
+<p>nodeName：节点名称<br>nodeValue：节点值</p>
+</blockquote>
+<p>元素节点:</p>
+<blockquote>
+<p>nodeType：1<br>nodeName：大写标签名<br>nodeValue：null</p>
+</blockquote>
+<p>文本节点:</p>
+<blockquote>
+<p>nodeType：3<br>nodeName：’#text’<br>nodeValue：文本内容</p>
+</blockquote>
+<p>注释节点:</p>
+<blockquote>
+<p>nodeType：8<br>nodeName：’#comment’<br>nodeValue：注释内容</p>
+</blockquote>
+<p>文档节点:</p>
+<blockquote>
+<p>nodeType：9<br>nodeName：’#document’<br>nodeValue：null</p>
+</blockquote>
+<h3 id="描述节点之间关系的属性"><a href="#描述节点之间关系的属性" class="headerlink" title="描述节点之间关系的属性"></a><strong>描述节点之间关系的属性</strong></h3><ol>
+<li>parentNode:获取当前节点唯一的父亲节点.</li>
+<li>childNodes:获取儿子级别的所有类型节点</li>
+<li>children:获取当前元素所有的元素子节点</li>
+<li>previousSibling:上一个哥哥节点</li>
+<li>previousElementSibling:上一个哥哥元素 节点</li>
+<li>nextSibling：下一个弟弟节点</li>
+<li>nextElementSibling：下一个弟弟元素节点</li>
+<li>firstChild：第一个子节点</li>
+<li>firstElementChild：第一个元素子节点</li>
+<li>lastChild：最后一个子节点</li>
+<li>lastElementChild：最后一个元素子节点</li>
+</ol>
+<h3 id="DOM的增删改"><a href="#DOM的增删改" class="headerlink" title="DOM的增删改"></a><strong>DOM的增删改</strong></h3><ol>
+<li>createElement：创建一个元素标签</li>
+<li>appendChild：把一个元素对象插入到指定容器的末尾</li>
+<li>insertBefore：把一个元素对象插入到指定容器中某一个元素标签之前</li>
+<li>cloneNode：克隆节点<ul>
+<li><code>[curEle].cloneNode()</code>：浅克隆</li>
+<li><code>[curEle].cloneNode(true)</code>深克隆</li>
+</ul>
+</li>
+<li>removeChild：删除某一个元素</li>
+<li>set/get/removeAttribute：设置/获取/删除 当前元素的某一个自定义属性</li>
+</ol>
+
       
 
       
@@ -207,6 +266,17 @@
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JAVASCRIPT//" class="article-tag-list-link color1">JAVASCRIPT</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -256,7 +326,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/categories/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/29/Dom方法/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,6 +338,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/29/Math方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[Math方法]</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -289,7 +369,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取DOM元素"><span class="toc-number">1.</span> <span class="toc-text">获取DOM元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#节点"><span class="toc-number">2.</span> <span class="toc-text">节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#描述节点之间关系的属性"><span class="toc-number">3.</span> <span class="toc-text">描述节点之间关系的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM的增删改"><span class="toc-number">4.</span> <span class="toc-text">DOM的增删改</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -336,7 +416,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

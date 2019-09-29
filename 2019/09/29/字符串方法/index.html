@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>分类 | </title>
+  <title>[字符串方法] | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="charAt/charCodeAt 作用：获取索引的字符 参数：索引 返回：字符或编码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[字符串方法]">
+<meta property="og:url" content="http://yoursite.com/2019/09/29/字符串方法/index.html">
 <meta property="og:site_name">
+<meta property="og:description" content="charAt/charCodeAt 作用：获取索引的字符 参数：索引 返回：字符或编码">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-27T07:19:48.096Z">
+<meta property="og:updated_time" content="2019-09-29T11:57:02.119Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="[字符串方法]">
+<meta name="twitter:description" content="charAt/charCodeAt 作用：获取索引的字符 参数：索引 返回：字符或编码">
   
     <link rel="alternative" href="/atom.xml" title type="application/atom+xml">
   
@@ -157,27 +160,73 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-字符串方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      分类
+      [字符串方法]
     </h1>
   
 
         
-        <a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2019-09-27T07:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-27</time>
+        <a href="/2019/09/29/字符串方法/" class="archive-article-date">
+  	<time datetime="2019-09-29T11:28:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="charAt-charCodeAt"><a href="#charAt-charCodeAt" class="headerlink" title="charAt/charCodeAt"></a><strong>charAt/charCodeAt</strong></h3><ul>
+<li>作用：获取索引的字符</li>
+<li>参数：索引</li>
+<li>返回：字符或编码<a id="more"></a></li>
+</ul>
+<h3 id="indexOf-lastIndexOf"><a href="#indexOf-lastIndexOf" class="headerlink" title="indexOf/lastIndexOf"></a><strong>indexOf/lastIndexOf</strong></h3><ul>
+<li>作用：查找字符串</li>
+<li>参数：字符串</li>
+<li>返回：-1/索引</li>
+</ul>
+<h3 id="slice"><a href="#slice" class="headerlink" title="slice"></a><strong>slice</strong></h3><ul>
+<li>作用：截取</li>
+<li>参数：两个索引</li>
+<li>返回：新字符串</li>
+</ul>
+<h3 id="substring"><a href="#substring" class="headerlink" title="substring"></a><strong>substring</strong></h3><ul>
+<li>作用：截取</li>
+<li>参数：两个索引(不能为负)</li>
+<li>返回：新字符串</li>
+</ul>
+<h3 id="substr"><a href="#substr" class="headerlink" title="substr"></a><strong>substr</strong></h3><ul>
+<li>作用：截取</li>
+<li>参数：索引加个数</li>
+<li>返回：新字符串</li>
+</ul>
+<h3 id="toUpperCase-toLowerCase"><a href="#toUpperCase-toLowerCase" class="headerlink" title="toUpperCase/toLowerCase"></a><strong>toUpperCase/toLowerCase</strong></h3><ul>
+<li>作用：转大小写</li>
+<li>参数：无</li>
+<li>返回：新字符串</li>
+</ul>
+<h3 id="spilt"><a href="#spilt" class="headerlink" title="spilt"></a><strong>spilt</strong></h3><ul>
+<li>作用：用字符将字符串分组</li>
+<li>参数：该字符串中的字符</li>
+<li>返回：数组</li>
+</ul>
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace"></a><strong>replace</strong></h3><ul>
+<li>作用：替换</li>
+<li>参数：原有字符/正则，字符/函数</li>
+<li>返回：字符串</li>
+</ul>
+<h3 id="trim"><a href="#trim" class="headerlink" title="trim"></a><strong>trim</strong></h3><ul>
+<li>作用：首尾去空格</li>
+<li>参数：</li>
+<li>返回：字符串</li>
+<li>原改变</li>
+</ul>
+
       
 
       
@@ -207,6 +256,17 @@
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JAVASCRIPT//" class="article-tag-list-link color1">JAVASCRIPT</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -256,7 +316,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/categories/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/29/字符串方法/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,6 +328,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/09/29/Math方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          [Math方法]
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/29/数组方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[数组方法]</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -289,7 +368,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#charAt-charCodeAt"><span class="toc-number">1.</span> <span class="toc-text">charAt/charCodeAt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#indexOf-lastIndexOf"><span class="toc-number">2.</span> <span class="toc-text">indexOf/lastIndexOf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slice"><span class="toc-number">3.</span> <span class="toc-text">slice</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#substring"><span class="toc-number">4.</span> <span class="toc-text">substring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#substr"><span class="toc-number">5.</span> <span class="toc-text">substr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#toUpperCase-toLowerCase"><span class="toc-number">6.</span> <span class="toc-text">toUpperCase/toLowerCase</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spilt"><span class="toc-number">7.</span> <span class="toc-text">spilt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#replace"><span class="toc-number">8.</span> <span class="toc-text">replace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#trim"><span class="toc-number">9.</span> <span class="toc-text">trim</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -336,7 +415,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

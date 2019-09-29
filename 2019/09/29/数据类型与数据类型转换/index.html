@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>分类 | </title>
+  <title>数据类型与数据类型转换 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="本文总阅读量次基本数据类型    数字number    字符串string">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据类型与数据类型转换">
+<meta property="og:url" content="http://yoursite.com/2019/09/29/数据类型与数据类型转换/index.html">
 <meta property="og:site_name">
+<meta property="og:description" content="本文总阅读量次基本数据类型    数字number    字符串string">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-27T07:19:48.096Z">
+<meta property="og:updated_time" content="2019-09-29T12:08:46.196Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="数据类型与数据类型转换">
+<meta name="twitter:description" content="本文总阅读量次基本数据类型    数字number    字符串string">
   
     <link rel="alternative" href="/atom.xml" title type="application/atom+xml">
   
@@ -157,27 +160,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-数据类型与数据类型转换" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      分类
+      数据类型与数据类型转换
     </h1>
   
 
         
-        <a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2019-09-27T07:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-27</time>
+        <a href="/2019/09/29/数据类型与数据类型转换/" class="archive-article-date">
+  	<time datetime="2019-09-29T09:28:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><span id="busuanzi_container_page_pv">  本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span><ul><h3>基本数据类型</h3><br>    <li>数字number</li><br>    <li>字符串string</li><a id="more"></a><br>    <li>布尔boolean</li><br>    <li>null</li><br>    <li>undefined</li></ul></p>
+
+<ul><h3>引用数据类型</h3>
+    <li>对象
+        <ul>
+            <li>普通对象Object</li>
+            <li>数组对象Array</li>
+            <li>正则对象RegExp</li>
+            <li>日期对象Date</li>
+            ...
+        </ul>
+    </li>
+    <li>函数function</li>
+    ...
+</ul>
+<h3>特殊类型</h3>
+symbol,表示唯一值
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">Symbol</span>(<span class="string">'abc'</span>); </span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">Symbol</span>(<span class="string">'abc'</span>); </span><br><span class="line"><span class="built_in">console</span>.log(a==b); =&gt;<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="把其他类型转换为数字"><a href="#把其他类型转换为数字" class="headerlink" title="把其他类型转换为数字"></a>把其他类型转换为数字</h3><ul>
+<li>Number(字符串)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="string">'13'</span>); -&gt;<span class="number">13</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'13px'</span>); -&gt;<span class="literal">NaN</span> <span class="comment">//遇到非有效数字结果为NaN </span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'13.5'</span>); -&gt;<span class="number">13.5</span> <span class="comment">//可以识别小数</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Number(布尔)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="literal">true</span>); <span class="comment">//-&gt;1 </span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">false</span>); <span class="comment">//-&gt;0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Number(null和undefined)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="literal">null</span>); <span class="comment">//-&gt;0 </span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">undefined</span>); <span class="comment">//-&gt;NaN</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Number(引用类型):先把引用值调取toString转换为字符串，然后再Number该字符串转换为数字.</p>
+</li>
+<li><p>parseInt和parseFloat</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">'13.5px'</span>); <span class="comment">//=&gt;13 </span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">'13.5px'</span>); <span class="comment">//=&gt;13.5</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'px123'</span>);<span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="把其他类型转换为布尔（Boolean-）"><a href="#把其他类型转换为布尔（Boolean-）" class="headerlink" title="把其他类型转换为布尔（Boolean()）"></a>把其他类型转换为布尔（Boolean()）</h3><p>规律：转换为false的只有0/NaN/空字符串/null/undefined,其余为true。</p>
+
       
 
       
@@ -207,6 +252,17 @@
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JAVASCRIPT//" class="article-tag-list-link color1">JAVASCRIPT</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -256,7 +312,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/categories/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/29/数据类型与数据类型转换/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,6 +324,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/09/29/检验数据类型的方式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          [检验数据类型的方式]
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/29/常用浏览器内核/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常用浏览器内核</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -289,7 +364,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">基本数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">引用数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">特殊类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把其他类型转换为数字"><span class="toc-number">4.</span> <span class="toc-text">把其他类型转换为数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把其他类型转换为布尔（Boolean-）"><span class="toc-number">5.</span> <span class="toc-text">把其他类型转换为布尔（Boolean()）</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -336,7 +411,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
