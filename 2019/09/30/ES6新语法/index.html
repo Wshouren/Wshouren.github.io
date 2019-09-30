@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Math方法 | </title>
+  <title>ES6新语法 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="Math方法">
-<meta property="og:url" content="http://yoursite.com/2019/09/29/Math方法/index.html">
+<meta property="og:title" content="ES6新语法">
+<meta property="og:url" content="http://yoursite.com/2019/09/30/ES6新语法/index.html">
 <meta property="og:site_name">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-30T07:29:48.134Z">
+<meta property="og:updated_time" content="2019-09-30T12:33:43.905Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Math方法">
+<meta name="twitter:title" content="ES6新语法">
   
     <link rel="alternative" href="/atom.xml" title type="application/atom+xml">
   
@@ -151,27 +151,83 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Math方法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-ES6新语法" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Math方法
+      ES6新语法
     </h1>
   
 
         
-        <a href="/2019/09/29/Math方法/" class="archive-article-date">
-  	<time datetime="2019-09-29T11:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
+        <a href="/2019/09/30/ES6新语法/" class="archive-article-date">
+  	<time datetime="2019-09-30T10:47:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="abs：绝对值"><a href="#abs：绝对值" class="headerlink" title="abs：绝对值"></a><strong><a id="more"></a>abs</strong>：绝对值</h3><h3 id="ceil-floor：向上-向下取整"><a href="#ceil-floor：向上-向下取整" class="headerlink" title="ceil/floor：向上/向下取整"></a><strong>ceil/floor</strong>：向上/向下取整</h3><h3 id="round：四舍五入"><a href="#round：四舍五入" class="headerlink" title="round：四舍五入"></a><strong>round</strong>：四舍五入</h3><h3 id="sqrt：开平方"><a href="#sqrt：开平方" class="headerlink" title="sqrt：开平方"></a><strong>sqrt</strong>：开平方</h3><h3 id="pow：取幂-N的M次方"><a href="#pow：取幂-N的M次方" class="headerlink" title="pow：取幂(N的M次方)"></a><strong>pow</strong>：取幂(N的M次方)</h3><h3 id="max-min-最大值和最小值"><a href="#max-min-最大值和最小值" class="headerlink" title="max/min:最大值和最小值"></a><strong>max/min</strong>:最大值和最小值</h3><h3 id="PI：获取圆周率"><a href="#PI：获取圆周率" class="headerlink" title="PI：获取圆周率"></a><strong>PI</strong>：获取圆周率</h3><h3 id="random-0-1随机小数"><a href="#random-0-1随机小数" class="headerlink" title="random:0~1随机小数"></a><strong>random</strong>:0~1随机小数</h3><h3 id="扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数"><a href="#扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数" class="headerlink" title="扩展:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数"></a><strong>扩展</strong>:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数</h3>
+        <h3 id="let-const"><a href="#let-const" class="headerlink" title="let/const"></a><strong><a id="more"></a>let/const</strong></h3><ol>
+<li>let不存在变量提升(变量不允许在声明之前使用)</li>
+<li>let不允许重复声明</li>
+<li>在全局作用域中let变量不是window属性，和它没关系</li>
+<li>typeof 未被声明的变量不是undefined而是报错(暂时性死区)</li>
+<li>let会形成块级作用域</li>
+</ol>
+<h3 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a><strong>解构赋值</strong></h3><p>按照一个数据结构，快速解析获取到其中的内容（一般是数组和对象）</p>
+<ul>
+<li>数组的解构赋值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ary=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> [a,b,c,d=<span class="number">0</span>,e]=ary;</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c, d);<span class="comment">//1,2,3,0,undefined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>对象的解构赋值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=&#123;<span class="attr">name</span>:<span class="string">'xxx'</span>,<span class="attr">age</span>:<span class="number">25</span>,<span class="attr">sex</span>:<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">age</span>:ageAA&#125;=obj;<span class="comment">//给解构的属性名起别名作为变量</span></span><br><span class="line"><span class="built_in">console</span>.log(age);<span class="comment">//报错</span></span><br><span class="line"><span class="built_in">console</span>.log(ageAA);<span class="comment">//25</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="…拓展、展开、剩余运算符"><a href="#…拓展、展开、剩余运算符" class="headerlink" title="…拓展、展开、剩余运算符"></a>…<strong>拓展、展开、剩余运算符</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ary=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="built_in">Math</span>.max(...arg);<span class="comment">//=&gt;3</span></span><br><span class="line"><span class="keyword">let</span> ary1=[...arguments];<span class="comment">//=&gt;类数组转数组</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a><strong>箭头函数</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x =&gt; <span class="function">(<span class="params">x,y</span>) =&gt;</span> x+y;</span><br><span class="line"><span class="comment">//相当于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">return</span> x * x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>没有arguments（可以基于…arg获取实参集合）</li>
+<li>没有自己的this，this是继承上下文中的this，箭头函数this不能被改变</li>
+</ol>
+<h3 id="模板字符串"><a href="#模板字符串" class="headerlink" title="``模板字符串"></a><strong>``模板字符串</strong></h3><ul>
+<li><p>${}大括号内可以放入任意的JavaScript表达式。</p>
+</li>
+<li><p>模板字符串之间可以进行嵌套</p>
+</li>
+<li><p>标签模板</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>, b = <span class="number">10</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tag</span>(<span class="params">strings, ...values</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(strings[<span class="number">0</span>]);    <span class="comment">// "Hello "</span></span><br><span class="line">    <span class="built_in">console</span>.log(strings[<span class="number">1</span>]);    <span class="comment">// " world"</span></span><br><span class="line">    <span class="built_in">console</span>.log(strings[<span class="number">2</span>]);    <span class="comment">// ""</span></span><br><span class="line">    <span class="built_in">console</span>.log(values[<span class="number">0</span>]);     <span class="comment">// 15</span></span><br><span class="line">    <span class="built_in">console</span>.log(values[<span class="number">1</span>]);     <span class="comment">// 50</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Anything"</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">tag<span class="string">`Hello <span class="subst">$&#123;a + b&#125;</span> world <span class="subst">$&#123;a * b&#125;</span>`</span>;</span><br><span class="line"><span class="comment">//=&gt;tag(['Hello ',' world', ''], 3, 2);</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="Promise-async-await"><a href="#Promise-async-await" class="headerlink" title="Promise(async/await)"></a><strong>Promise(async/await)</strong></h3><p>它是ES6中新增加的类 (new Promise)，目的是为了管理JS中的异步编程的(它本身是同步的)，所以我们也把它称为“Promise设计模式”</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//=&gt;执行一个异步的任务（new Promise的时候，创建Promise的一个实例，立即会把当前函数体中的异步操作执行） =&gt;“Promise是同步的，它可以管理异步操作”</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);<span class="comment">//=&gt;先输出1</span></span><br><span class="line">&#125;).then();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>);<span class="comment">//=&gt;再输出2</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><em>pending</em>: 初始状态，既不是成功，也不是失败状态。</p>
+</li>
+<li><p><em>fulfilled</em>: 意味着操作成功完成。</p>
+</li>
+<li><p><em>rejected</em>: 意味着操作失败。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//=&gt;resolve：当异步操作执行成功，我们执行resolve方法</span></span><br><span class="line">    <span class="comment">//=&gt;reject：当异步操作执行失败，我们执行reject方法</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        resolve(<span class="number">100</span>);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//=&gt;第一个传递的函数是resolve</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'ok'</span>, res);</span><br><span class="line">&#125;, () =&gt; &#123;</span><br><span class="line">    <span class="comment">//=&gt;第二个传递的函数是reject</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'no'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>用Promise处理AJAX异步:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> pro = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//=&gt;执行一个异步操作</span></span><br><span class="line">    <span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xhr.open(<span class="string">'get'</span>, <span class="string">'js/1.js'</span>, <span class="literal">true</span>);</span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">            val = xhr.responseText;</span><br><span class="line">            resolve(val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (xhr.status !== <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="comment">//=&gt;失败</span></span><br><span class="line">            reject();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    xhr.send(<span class="literal">null</span>);</span><br><span class="line">&#125;);</span><br><span class="line">pro.then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">    <span class="comment">//=&gt;数据绑定</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">100</span>;<span class="comment">//=&gt;它返回的结果传递给第二个THEN了...</span></span><br><span class="line">&#125;, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'no'</span>);</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//=&gt;当第一个THEN中的函数执行完，会执行第二个</span></span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">&#125;, () =&gt; &#123;</span><br><span class="line"></span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//=&gt;当第二个THEN中的函数执行完，会执行第三个</span></span><br><span class="line">&#125;, () =&gt; &#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="class-ES6中创建类的"><a href="#class-ES6中创建类的" class="headerlink" title="class(ES6中创建类的)"></a><strong>class(ES6中创建类的)</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;<span class="comment">//构造函数 </span></span><br><span class="line">    &#125;</span><br><span class="line">    a()&#123;<span class="comment">//定义在A原型上的方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="interator-for-of循环"><a href="#interator-for-of循环" class="headerlink" title="interator(for of循环)"></a><strong>interator(for of循环)</strong></h3><h3 id="Map-Set"><a href="#Map-Set" class="headerlink" title="Map/Set"></a><strong>Map/Set</strong></h3>
       
 
       
@@ -261,7 +317,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/29/Math方法/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/30/ES6新语法/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +331,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/29/Dom方法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/30/继承/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Dom方法
+          继承
         
       </div>
     </a>
   
   
-    <a href="/2019/09/29/字符串方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">字符串方法</div>
+    <a href="/2019/09/30/jQuery/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jQuery</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -313,7 +369,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#abs：绝对值"><span class="toc-number">1.</span> <span class="toc-text">abs：绝对值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ceil-floor：向上-向下取整"><span class="toc-number">2.</span> <span class="toc-text">ceil/floor：向上/向下取整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#round：四舍五入"><span class="toc-number">3.</span> <span class="toc-text">round：四舍五入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqrt：开平方"><span class="toc-number">4.</span> <span class="toc-text">sqrt：开平方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pow：取幂-N的M次方"><span class="toc-number">5.</span> <span class="toc-text">pow：取幂(N的M次方)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#max-min-最大值和最小值"><span class="toc-number">6.</span> <span class="toc-text">max/min:最大值和最小值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PI：获取圆周率"><span class="toc-number">7.</span> <span class="toc-text">PI：获取圆周率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#random-0-1随机小数"><span class="toc-number">8.</span> <span class="toc-text">random:0~1随机小数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数"><span class="toc-number">9.</span> <span class="toc-text">扩展:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#let-const"><span class="toc-number">1.</span> <span class="toc-text">let/const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解构赋值"><span class="toc-number">2.</span> <span class="toc-text">解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#…拓展、展开、剩余运算符"><span class="toc-number">3.</span> <span class="toc-text">…拓展、展开、剩余运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#箭头函数"><span class="toc-number">4.</span> <span class="toc-text">箭头函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板字符串"><span class="toc-number">5.</span> <span class="toc-text">``模板字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-async-await"><span class="toc-number">6.</span> <span class="toc-text">Promise(async/await)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#class-ES6中创建类的"><span class="toc-number">7.</span> <span class="toc-text">class(ES6中创建类的)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#interator-for-of循环"><span class="toc-number">8.</span> <span class="toc-text">interator(for of循环)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map-Set"><span class="toc-number">9.</span> <span class="toc-text">Map/Set</span></a></li></ol>
                     </div>
                 </span>
             </div>

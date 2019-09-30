@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Math方法 | </title>
+  <title>正则 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="Math方法">
-<meta property="og:url" content="http://yoursite.com/2019/09/29/Math方法/index.html">
+<meta property="og:title" content="正则">
+<meta property="og:url" content="http://yoursite.com/2019/09/30/正则/index.html">
 <meta property="og:site_name">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-30T07:29:48.134Z">
+<meta property="og:updated_time" content="2019-09-30T09:59:45.083Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Math方法">
+<meta name="twitter:title" content="正则">
   
     <link rel="alternative" href="/atom.xml" title type="application/atom+xml">
   
@@ -151,27 +151,121 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Math方法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-正则" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Math方法
+      正则
     </h1>
   
 
         
-        <a href="/2019/09/29/Math方法/" class="archive-article-date">
-  	<time datetime="2019-09-29T11:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
+        <a href="/2019/09/30/正则/" class="archive-article-date">
+  	<time datetime="2019-09-30T08:34:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="abs：绝对值"><a href="#abs：绝对值" class="headerlink" title="abs：绝对值"></a><strong><a id="more"></a>abs</strong>：绝对值</h3><h3 id="ceil-floor：向上-向下取整"><a href="#ceil-floor：向上-向下取整" class="headerlink" title="ceil/floor：向上/向下取整"></a><strong>ceil/floor</strong>：向上/向下取整</h3><h3 id="round：四舍五入"><a href="#round：四舍五入" class="headerlink" title="round：四舍五入"></a><strong>round</strong>：四舍五入</h3><h3 id="sqrt：开平方"><a href="#sqrt：开平方" class="headerlink" title="sqrt：开平方"></a><strong>sqrt</strong>：开平方</h3><h3 id="pow：取幂-N的M次方"><a href="#pow：取幂-N的M次方" class="headerlink" title="pow：取幂(N的M次方)"></a><strong>pow</strong>：取幂(N的M次方)</h3><h3 id="max-min-最大值和最小值"><a href="#max-min-最大值和最小值" class="headerlink" title="max/min:最大值和最小值"></a><strong>max/min</strong>:最大值和最小值</h3><h3 id="PI：获取圆周率"><a href="#PI：获取圆周率" class="headerlink" title="PI：获取圆周率"></a><strong>PI</strong>：获取圆周率</h3><h3 id="random-0-1随机小数"><a href="#random-0-1随机小数" class="headerlink" title="random:0~1随机小数"></a><strong>random</strong>:0~1随机小数</h3><h3 id="扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数"><a href="#扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数" class="headerlink" title="扩展:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数"></a><strong>扩展</strong>:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数</h3>
+        <h3 id="创建正则"><a href="#创建正则" class="headerlink" title="创建正则"></a><a id="more"></a>创建正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg1 = <span class="regexp">/^\d+$/g</span>;<span class="comment">//=&gt;字面量方式</span></span><br><span class="line"><span class="keyword">let</span> reg2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^\\d+$"</span>, <span class="string">"g"</span>);<span class="comment">//=&gt;构造函数方式</span></span><br></pre></td></tr></table></figure>
+
+<p>两个斜杠之间的是”元字符”，斜杠后面出现的都是“修饰符”</p>
+<h3 id="常用元字符"><a href="#常用元字符" class="headerlink" title="常用元字符"></a>常用元字符</h3><p>特殊元字符:</p>
+<ul>
+<li>\d     0~9    </li>
+<li>\w    “数字、字母、下划线”中的任意一个</li>
+<li>\s     匹配任意一个空白字符（包括\t制表符[TAB键四个空格]）</li>
+<li>\b    匹配边界符  ‘zhu’(z左边和u右边就是边界)  ‘zhu-feng’(z左边、u右边、f左边、g右边是边界)</li>
+<li>\n     匹配一个换行符</li>
+<li>\       转义字符(把一个普通字符转义为特殊的字符,例如:\d，把有特殊含义的转换为普通意思</li>
+<li>.       不仅仅是小数点，代表除了\n以外的任意字符</li>
+<li>^      以某个元字符开头</li>
+<li>$      以某个元字符结尾</li>
+<li>[xyz] x或者y或者z中的任意一个</li>
+<li>[^xyz] 除了x\y\z以外的任意字符</li>
+<li>[a-z] 获取a-z中的任意一个字符([0-9] 等价于\d …)</li>
+<li>()  正则分组</li>
+<li>(?:) 当前分组只匹配不捕获</li>
+<li>(?=) 正向预查</li>
+<li>(?!) 负向预查</li>
+</ul>
+<hr>
+<p>量词元字符（让其左边元字符出现多次）</p>
+<ul>
+<li>‘*’    &gt;=0</li>
+<li>‘?’    [0,1]</li>
+<li>‘+’    &gt;=1</li>
+<li>{n}   n次</li>
+<li>{n.}  &gt;=n次</li>
+<li>{n,m}  [n,m]</li>
+</ul>
+<hr>
+<p>普通元字符</p>
+<ul>
+<li>只要在正则中出现的元字符（在基于字面方式创建），除了特殊和有量词意义的以外，其余的都是普通元字符</li>
+</ul>
+<h3 id="中括号的一些细节"><a href="#中括号的一些细节" class="headerlink" title="中括号的一些细节"></a>中括号的一些细节</h3><ul>
+<li>中括号中出现的元字符一般都是代表本身含义的</li>
+<li>中括号中出现的两位数，不是两位数，而是两个数字中的任意一个</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^[12-65]$/</span>;<span class="comment">//这个正则的意思是 1或者2~6或者5</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="分组的作用"><a href="#分组的作用" class="headerlink" title="分组的作用"></a>分组的作用</h3><ul>
+<li>改变的默认的优先级</li>
+<li>分组捕获</li>
+<li>分组引用</li>
+</ul>
+<h3 id="正则捕获exec"><a href="#正则捕获exec" class="headerlink" title="正则捕获exec"></a>正则捕获exec</h3><ul>
+<li><p>如果当前正则和字符串不匹配，捕获的结果是NULL</p>
+</li>
+<li><p>如果匹配，捕获的结果是一个数组</p>
+</li>
+<li><p>0:大正则捕获的内容，后面的数字索引是匹配到的分组内容</p>
+</li>
+<li><p>index:正则捕获的起始索引</p>
+</li>
+<li><p>input:原始操作的字符串</p>
+</li>
+<li><p>EXEC只能捕获到第一个和正则匹配的内容（正则捕获的懒惰性，解决正则捕获的懒惰性，我们需要加全局修饰符G）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">et reg=<span class="regexp">/(\d+)abc/g</span>;</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(<span class="string">'12abc23abc34'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(<span class="string">'12abc23abc34'</span>));</span><br><span class="line"><span class="comment">/* ["12abc", "12", index: 0, input: "12abc23abc34", groups: undefined]</span></span><br><span class="line"><span class="comment">0: "12abc"</span></span><br><span class="line"><span class="comment">1: "12"</span></span><br><span class="line"><span class="comment">groups: undefined</span></span><br><span class="line"><span class="comment">index: 0</span></span><br><span class="line"><span class="comment">input: "12abc23abc34"</span></span><br><span class="line"><span class="comment">length: 2</span></span><br><span class="line"><span class="comment">__proto__: Array(0)</span></span><br><span class="line"><span class="comment">--------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">["23abc", "23", index: 5, input: "12abc23abc34", groups: undefined]</span></span><br><span class="line"><span class="comment">0: "23abc"</span></span><br><span class="line"><span class="comment">1: "23"</span></span><br><span class="line"><span class="comment">groups: undefined</span></span><br><span class="line"><span class="comment">index: 5</span></span><br><span class="line"><span class="comment">input: "12abc23abc34"</span></span><br><span class="line"><span class="comment">length: 2</span></span><br><span class="line"><span class="comment">__proto__: Array(0)*/</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="字符串匹配正则match"><a href="#字符串匹配正则match" class="headerlink" title="字符串匹配正则match"></a>字符串匹配正则match</h3><p>不加’g’:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg=<span class="regexp">/\d+/</span>;</span><br><span class="line"><span class="keyword">let</span> str=<span class="string">'12abc23abc34'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg));</span><br><span class="line"><span class="comment">/*和正则捕获exec的结果一样</span></span><br><span class="line"><span class="comment">["12", index: 0, input: "12abc23abc34", groups: undefined]</span></span><br><span class="line"><span class="comment">0: "12"</span></span><br><span class="line"><span class="comment">groups: undefined</span></span><br><span class="line"><span class="comment">index: 0</span></span><br><span class="line"><span class="comment">input: "12abc23abc34"</span></span><br><span class="line"><span class="comment">length: 1</span></span><br><span class="line"><span class="comment">__proto__: Array(0)</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<p>加’g’:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg=<span class="regexp">/\d+/g</span>;</span><br><span class="line"><span class="keyword">let</span> str=<span class="string">'12abc23abc34'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">(3) ["12", "23", "34"]</span></span><br><span class="line"><span class="comment">0: "12"</span></span><br><span class="line"><span class="comment">1: "23"</span></span><br><span class="line"><span class="comment">2: "34"</span></span><br><span class="line"><span class="comment">length: 3</span></span><br><span class="line"><span class="comment">__proto__: Array(0)</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h3><ul>
+<li><p>reg和 str匹配多少次，函数就被触发执行对少次，基于exec把每一次正则匹配到结果中的每一项，传递给函数执行</p>
+</li>
+<li><p>每一次函数中返回的是啥，就把当前大正则匹配的内容替换成啥</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg=<span class="regexp">/(\d+)abc/g</span>;</span><br><span class="line"><span class="keyword">let</span> str=<span class="string">'12abc23abc34'</span>;</span><br><span class="line">str=str.replace(reg,(...arg)=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arg);<span class="comment">/*匹配到两次</span></span><br><span class="line"><span class="comment">    ["12abc", "12", 0, "12abc23abc34"]</span></span><br><span class="line"><span class="comment">    ["23abc", "23", 5, "12abc23abc34"]</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'haha'</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(str);<span class="comment">//hahahaha34</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="正则捕获贪婪性"><a href="#正则捕获贪婪性" class="headerlink" title="正则捕获贪婪性"></a>正则捕获贪婪性</h3><p>正则捕获还具备贪婪性：每一次匹配捕获的时候，总是捕获到和正则匹配中最长的内容，把问号放到量词元字符后面，代表的就不是出现零次或者一次了，而且取消捕获的贪婪性</p>
+<h3 id="一些常用正则"><a href="#一些常用正则" class="headerlink" title="一些常用正则"></a>一些常用正则</h3><ul>
+<li><p>有效数字</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[+-]?(\d|([<span class="number">1</span><span class="number">-9</span>]\d+))(\.\d+)?$/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>电话号码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">1</span>\d&#123;<span class="number">10</span>&#125;$/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>中文姓名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[\u4E00-\u9FA5]&#123;<span class="number">2</span>,&#125;(·[\u4E00-\u9FA5]&#123;<span class="number">2</span>,&#125;)?$/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>邮箱</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\w+([-.]\w+)*@[A-Za-z0<span class="number">-9</span>]+([-.][A-Za-z0<span class="number">-9</span>]+)*(\.[A-Za-z0<span class="number">-9</span>]+)$/</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
       
 
       
@@ -261,7 +355,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/29/Math方法/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/30/正则/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +369,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/29/Dom方法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/30/Dom盒子模型/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Dom方法
+          Dom盒子模型
         
       </div>
     </a>
   
   
-    <a href="/2019/09/29/字符串方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">字符串方法</div>
+    <a href="/2019/09/30/DOM的回流和重绘/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DOM的回流和重绘</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -313,7 +407,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#abs：绝对值"><span class="toc-number">1.</span> <span class="toc-text">abs：绝对值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ceil-floor：向上-向下取整"><span class="toc-number">2.</span> <span class="toc-text">ceil/floor：向上/向下取整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#round：四舍五入"><span class="toc-number">3.</span> <span class="toc-text">round：四舍五入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqrt：开平方"><span class="toc-number">4.</span> <span class="toc-text">sqrt：开平方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pow：取幂-N的M次方"><span class="toc-number">5.</span> <span class="toc-text">pow：取幂(N的M次方)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#max-min-最大值和最小值"><span class="toc-number">6.</span> <span class="toc-text">max/min:最大值和最小值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PI：获取圆周率"><span class="toc-number">7.</span> <span class="toc-text">PI：获取圆周率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#random-0-1随机小数"><span class="toc-number">8.</span> <span class="toc-text">random:0~1随机小数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数"><span class="toc-number">9.</span> <span class="toc-text">扩展:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建正则"><span class="toc-number">1.</span> <span class="toc-text">创建正则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用元字符"><span class="toc-number">2.</span> <span class="toc-text">常用元字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中括号的一些细节"><span class="toc-number">3.</span> <span class="toc-text">中括号的一些细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组的作用"><span class="toc-number">4.</span> <span class="toc-text">分组的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则捕获exec"><span class="toc-number">5.</span> <span class="toc-text">正则捕获exec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串匹配正则match"><span class="toc-number">6.</span> <span class="toc-text">字符串匹配正则match</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#replace"><span class="toc-number">7.</span> <span class="toc-text">replace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则捕获贪婪性"><span class="toc-number">8.</span> <span class="toc-text">正则捕获贪婪性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些常用正则"><span class="toc-number">9.</span> <span class="toc-text">一些常用正则</span></a></li></ol>
                     </div>
                 </span>
             </div>

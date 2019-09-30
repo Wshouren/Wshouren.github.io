@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Math方法 | </title>
+  <title>this | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="Math方法">
-<meta property="og:url" content="http://yoursite.com/2019/09/29/Math方法/index.html">
+<meta property="og:title" content="this">
+<meta property="og:url" content="http://yoursite.com/2019/09/30/this/index.html">
 <meta property="og:site_name">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-30T07:29:48.134Z">
+<meta property="og:updated_time" content="2019-09-30T11:56:43.248Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Math方法">
+<meta name="twitter:title" content="this">
   
     <link rel="alternative" href="/atom.xml" title type="application/atom+xml">
   
@@ -151,27 +151,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Math方法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-this" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Math方法
+      this
     </h1>
   
 
         
-        <a href="/2019/09/29/Math方法/" class="archive-article-date">
-  	<time datetime="2019-09-29T11:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
+        <a href="/2019/09/30/this/" class="archive-article-date">
+  	<time datetime="2019-09-30T08:07:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="abs：绝对值"><a href="#abs：绝对值" class="headerlink" title="abs：绝对值"></a><strong><a id="more"></a>abs</strong>：绝对值</h3><h3 id="ceil-floor：向上-向下取整"><a href="#ceil-floor：向上-向下取整" class="headerlink" title="ceil/floor：向上/向下取整"></a><strong>ceil/floor</strong>：向上/向下取整</h3><h3 id="round：四舍五入"><a href="#round：四舍五入" class="headerlink" title="round：四舍五入"></a><strong>round</strong>：四舍五入</h3><h3 id="sqrt：开平方"><a href="#sqrt：开平方" class="headerlink" title="sqrt：开平方"></a><strong>sqrt</strong>：开平方</h3><h3 id="pow：取幂-N的M次方"><a href="#pow：取幂-N的M次方" class="headerlink" title="pow：取幂(N的M次方)"></a><strong>pow</strong>：取幂(N的M次方)</h3><h3 id="max-min-最大值和最小值"><a href="#max-min-最大值和最小值" class="headerlink" title="max/min:最大值和最小值"></a><strong>max/min</strong>:最大值和最小值</h3><h3 id="PI：获取圆周率"><a href="#PI：获取圆周率" class="headerlink" title="PI：获取圆周率"></a><strong>PI</strong>：获取圆周率</h3><h3 id="random-0-1随机小数"><a href="#random-0-1随机小数" class="headerlink" title="random:0~1随机小数"></a><strong>random</strong>:0~1随机小数</h3><h3 id="扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数"><a href="#扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数" class="headerlink" title="扩展:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数"></a><strong>扩展</strong>:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数</h3>
+        <h3 id="this"><a href="#this" class="headerlink" title="this"></a><a id="more"></a>this</h3><ul>
+<li>事件绑定，方法中的this都是当前操作的元素本身</li>
+<li>函数执行，看函数前面是否有点，有的话，点前面是谁THIS就是谁，没有点，this是WINDOW（在JS的严格模式下，没有点this是UNDEFINED</li>
+<li>构造函数执行，this一般都是当前类的实例</li>
+<li>箭头函数中没有自己的this,this是上下文中的this</li>
+<li>在小括号表达式中，会影响this的指向</li>
+<li>使用call/apply/bind可以改变this指向，非严格模式下call/apply/bind第一个参数不写或者写null和undefined，this都是window，严格模式下写谁this就是谁，不写是undefined</li>
+</ul>
+<h3 id="改变this指向"><a href="#改变this指向" class="headerlink" title="改变this指向"></a>改变this指向</h3><ul>
+<li><p>call：<code>[fn].call([this],10,20,30,...)</code></p>
+</li>
+<li><p>apply：<code>fn.apply([this],[10,20,...])</code></p>
+<p>和call差不多，唯一区别在于传参方式,apply把需要传递  给fn的参数放到一个数组(或类数组)中。</p>
+</li>
+<li><p>bind：<code>document.onclick=fn.bind(obj)</code></p>
+<p>和call语法一样，唯一区别在于立即执行还是等待执行把fn中的this预处理为obj，此时fn没有执行，当点击的时候才会把fn执行</p>
+</li>
+</ul>
+
       
 
       
@@ -261,7 +279,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/29/Math方法/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/30/this/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +293,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/29/Dom方法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/30/less模块/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Dom方法
+          less模块
         
       </div>
     </a>
   
   
-    <a href="/2019/09/29/字符串方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">字符串方法</div>
+    <a href="/2019/09/30/arguments对象/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">arguments对象</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -313,7 +331,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#abs：绝对值"><span class="toc-number">1.</span> <span class="toc-text">abs：绝对值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ceil-floor：向上-向下取整"><span class="toc-number">2.</span> <span class="toc-text">ceil/floor：向上/向下取整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#round：四舍五入"><span class="toc-number">3.</span> <span class="toc-text">round：四舍五入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqrt：开平方"><span class="toc-number">4.</span> <span class="toc-text">sqrt：开平方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pow：取幂-N的M次方"><span class="toc-number">5.</span> <span class="toc-text">pow：取幂(N的M次方)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#max-min-最大值和最小值"><span class="toc-number">6.</span> <span class="toc-text">max/min:最大值和最小值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PI：获取圆周率"><span class="toc-number">7.</span> <span class="toc-text">PI：获取圆周率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#random-0-1随机小数"><span class="toc-number">8.</span> <span class="toc-text">random:0~1随机小数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数"><span class="toc-number">9.</span> <span class="toc-text">扩展:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#this"><span class="toc-number">1.</span> <span class="toc-text">this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改变this指向"><span class="toc-number">2.</span> <span class="toc-text">改变this指向</span></a></li></ol>
                     </div>
                 </span>
             </div>

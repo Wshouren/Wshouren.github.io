@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Math方法 | </title>
+  <title>变量提升 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="Math方法">
-<meta property="og:url" content="http://yoursite.com/2019/09/29/Math方法/index.html">
+<meta property="og:title" content="变量提升">
+<meta property="og:url" content="http://yoursite.com/2019/09/30/变量提升/index.html">
 <meta property="og:site_name">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-30T07:29:48.134Z">
+<meta property="og:updated_time" content="2019-09-30T07:45:48.704Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Math方法">
+<meta name="twitter:title" content="变量提升">
   
     <link rel="alternative" href="/atom.xml" title type="application/atom+xml">
   
@@ -151,27 +151,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Math方法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-变量提升" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Math方法
+      变量提升
     </h1>
   
 
         
-        <a href="/2019/09/29/Math方法/" class="archive-article-date">
-  	<time datetime="2019-09-29T11:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
+        <a href="/2019/09/30/变量提升/" class="archive-article-date">
+  	<time datetime="2019-09-30T07:28:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="abs：绝对值"><a href="#abs：绝对值" class="headerlink" title="abs：绝对值"></a><strong><a id="more"></a>abs</strong>：绝对值</h3><h3 id="ceil-floor：向上-向下取整"><a href="#ceil-floor：向上-向下取整" class="headerlink" title="ceil/floor：向上/向下取整"></a><strong>ceil/floor</strong>：向上/向下取整</h3><h3 id="round：四舍五入"><a href="#round：四舍五入" class="headerlink" title="round：四舍五入"></a><strong>round</strong>：四舍五入</h3><h3 id="sqrt：开平方"><a href="#sqrt：开平方" class="headerlink" title="sqrt：开平方"></a><strong>sqrt</strong>：开平方</h3><h3 id="pow：取幂-N的M次方"><a href="#pow：取幂-N的M次方" class="headerlink" title="pow：取幂(N的M次方)"></a><strong>pow</strong>：取幂(N的M次方)</h3><h3 id="max-min-最大值和最小值"><a href="#max-min-最大值和最小值" class="headerlink" title="max/min:最大值和最小值"></a><strong>max/min</strong>:最大值和最小值</h3><h3 id="PI：获取圆周率"><a href="#PI：获取圆周率" class="headerlink" title="PI：获取圆周率"></a><strong>PI</strong>：获取圆周率</h3><h3 id="random-0-1随机小数"><a href="#random-0-1随机小数" class="headerlink" title="random:0~1随机小数"></a><strong>random</strong>:0~1随机小数</h3><h3 id="扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数"><a href="#扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数" class="headerlink" title="扩展:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数"></a><strong>扩展</strong>:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数</h3>
+        <h3 id="什么是变量提升？"><a href="#什么是变量提升？" class="headerlink" title="什么是变量提升？"></a><a id="more"></a>什么是变量提升？</h3><ul>
+<li>作用域形成后先进行变量提升（函数是先进行形参赋值）</li>
+<li>对var和function提前声明和提前定义</li>
+</ul>
+<h3 id="关于变量提升需要注意的几点"><a href="#关于变量提升需要注意的几点" class="headerlink" title="关于变量提升需要注意的几点"></a>关于变量提升需要注意的几点</h3><ul>
+<li>只对等号左边进行变量提升</li>
+<li>全局作用域下用var声明的变量，相当于给window设置一个属性，变量的值就是属性值，修改一方的值另一方会改变，存在映射关系。</li>
+<li>条件判断下的变量提升：当前作用域下，不管条件成立否，都进行变量提升，且var和function都只声明（老版本浏览器function会定义），执行到条件成立时形成块级作用域，第一件事是变量提升（条件里面function会先定义）。</li>
+</ul>
+
       
 
       
@@ -261,7 +270,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/29/Math方法/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/30/变量提升/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +284,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/29/Dom方法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/30/原型链与作用域链/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Dom方法
+          原型链与作用域链
         
       </div>
     </a>
   
   
-    <a href="/2019/09/29/字符串方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">字符串方法</div>
+    <a href="/2019/09/29/Dom方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Dom方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -313,7 +322,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#abs：绝对值"><span class="toc-number">1.</span> <span class="toc-text">abs：绝对值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ceil-floor：向上-向下取整"><span class="toc-number">2.</span> <span class="toc-text">ceil/floor：向上/向下取整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#round：四舍五入"><span class="toc-number">3.</span> <span class="toc-text">round：四舍五入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqrt：开平方"><span class="toc-number">4.</span> <span class="toc-text">sqrt：开平方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pow：取幂-N的M次方"><span class="toc-number">5.</span> <span class="toc-text">pow：取幂(N的M次方)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#max-min-最大值和最小值"><span class="toc-number">6.</span> <span class="toc-text">max/min:最大值和最小值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PI：获取圆周率"><span class="toc-number">7.</span> <span class="toc-text">PI：获取圆周率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#random-0-1随机小数"><span class="toc-number">8.</span> <span class="toc-text">random:0~1随机小数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数"><span class="toc-number">9.</span> <span class="toc-text">扩展:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是变量提升？"><span class="toc-number">1.</span> <span class="toc-text">什么是变量提升？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于变量提升需要注意的几点"><span class="toc-number">2.</span> <span class="toc-text">关于变量提升需要注意的几点</span></a></li></ol>
                     </div>
                 </span>
             </div>

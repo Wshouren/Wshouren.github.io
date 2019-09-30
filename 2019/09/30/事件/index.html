@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Math方法 | </title>
+  <title>事件 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="Math方法">
-<meta property="og:url" content="http://yoursite.com/2019/09/29/Math方法/index.html">
+<meta property="og:title" content="事件">
+<meta property="og:url" content="http://yoursite.com/2019/09/30/事件/index.html">
 <meta property="og:site_name">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-30T07:29:48.134Z">
+<meta property="og:updated_time" content="2019-09-30T13:14:32.873Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Math方法">
+<meta name="twitter:title" content="事件">
   
     <link rel="alternative" href="/atom.xml" title type="application/atom+xml">
   
@@ -151,27 +151,169 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Math方法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-事件" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Math方法
+      事件
     </h1>
   
 
         
-        <a href="/2019/09/29/Math方法/" class="archive-article-date">
-  	<time datetime="2019-09-29T11:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
+        <a href="/2019/09/30/事件/" class="archive-article-date">
+  	<time datetime="2019-09-30T12:46:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="abs：绝对值"><a href="#abs：绝对值" class="headerlink" title="abs：绝对值"></a><strong><a id="more"></a>abs</strong>：绝对值</h3><h3 id="ceil-floor：向上-向下取整"><a href="#ceil-floor：向上-向下取整" class="headerlink" title="ceil/floor：向上/向下取整"></a><strong>ceil/floor</strong>：向上/向下取整</h3><h3 id="round：四舍五入"><a href="#round：四舍五入" class="headerlink" title="round：四舍五入"></a><strong>round</strong>：四舍五入</h3><h3 id="sqrt：开平方"><a href="#sqrt：开平方" class="headerlink" title="sqrt：开平方"></a><strong>sqrt</strong>：开平方</h3><h3 id="pow：取幂-N的M次方"><a href="#pow：取幂-N的M次方" class="headerlink" title="pow：取幂(N的M次方)"></a><strong>pow</strong>：取幂(N的M次方)</h3><h3 id="max-min-最大值和最小值"><a href="#max-min-最大值和最小值" class="headerlink" title="max/min:最大值和最小值"></a><strong>max/min</strong>:最大值和最小值</h3><h3 id="PI：获取圆周率"><a href="#PI：获取圆周率" class="headerlink" title="PI：获取圆周率"></a><strong>PI</strong>：获取圆周率</h3><h3 id="random-0-1随机小数"><a href="#random-0-1随机小数" class="headerlink" title="random:0~1随机小数"></a><strong>random</strong>:0~1随机小数</h3><h3 id="扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数"><a href="#扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数" class="headerlink" title="扩展:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数"></a><strong>扩展</strong>:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数</h3>
+        <h3 id="元素天生自带的事件"><a href="#元素天生自带的事件" class="headerlink" title="元素天生自带的事件"></a><a id="more"></a>元素天生自带的事件</h3><p><strong>鼠标事件</strong></p>
+<ul>
+<li>click：点击 (PC端是点击，移动端的click代表单击[移动端使用click会有300MS延迟的问题])</li>
+<li>dblclick：双击</li>
+<li>mouseover：鼠标经过</li>
+<li>mouseout：鼠标移出</li>
+<li>mouseenter：鼠标进入</li>
+<li>mouseleave：鼠标离开</li>
+<li>mousemove：鼠标移动</li>
+<li>mousedown：鼠标按下（鼠标左右键都起作用，它是按下即触发，click是按下抬起才会触发，而且是先把down和up触发，才会触发click）</li>
+<li>mouseup：鼠标抬起</li>
+<li>mousewheel：鼠标滚轮滚动</li>
+</ul>
+<hr>
+<p><strong>键盘事件</strong></p>
+<ul>
+<li>keydown：键盘按下</li>
+<li>keyup：键盘抬起</li>
+<li>keypress：和keydown类似，只不过keydown返回的是键盘码，keypress返回的是ASCII码值</li>
+<li>input：由于PC端有实体物理键盘，可以监听到键盘的按下和抬起，但是移动端是虚拟的键盘，所以keydown和keyup在大部分手机上都没有，我们使用input事件统一代替他们（内容改变事件）</li>
+<li>…</li>
+</ul>
+<hr>
+<p><strong>表单元素常用的事件</strong></p>
+<ul>
+<li>focus：获取焦点</li>
+<li>blur：失去焦点</li>
+<li>change：内容改变</li>
+<li>…</li>
+</ul>
+<hr>
+<p><strong>其它常用事件</strong></p>
+<ul>
+<li>load：加载完成</li>
+<li>unload</li>
+<li>beforeunload</li>
+<li>scroll：滚动条滚动事件</li>
+<li>resize：大小改变事件  window.onresize=function(){} 当浏览器窗口大小发生改变，会触发这个事件，执行对应的事情</li>
+<li>…</li>
+</ul>
+<hr>
+<p><strong>移动端手指事件</strong></p>
+<ul>
+<li>[touch：单手指操作]<ol>
+<li>touchstart：手指按下</li>
+<li>touchmove：手指移动</li>
+<li>touchend：手指离开</li>
+<li>touchcancel：因为意外情况导致手指操作取消<br>*</li>
+</ol>
+</li>
+<li>[gesture：多手指操作]<ol>
+<li>gesturestart：手指按下</li>
+<li>gesturechange：手指改变</li>
+<li>gestureend：手指离开</li>
+<li>…</li>
+</ol>
+</li>
+<li>[H5中的AUDIO/VIDEO音视频事件]<ol>
+<li>canplay：可以播放（播放过程中可能出现由于资源没有加载完成，导致的卡顿）</li>
+<li>canplaythrough：资源加载完成，可以正常无障碍播放</li>
+<li>…</li>
+</ol>
+</li>
+</ul>
+<h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><p><strong>DOM0级事件绑定</strong></p>
+<p>[element].onxxx=function(){}</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//=&gt;DOM0事件绑定：只允许给当前元素的某个事件行为绑定一个方法，多次绑定，后面绑定的内容会替换前面绑定的，以最后一次绑定的方法为主</span></span><br><span class="line">    box.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    box.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">2</span>);<span class="comment">//=&gt;触发点击行为，只输出2</span></span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>DOM2级事件绑定</strong></p>
+<p>添加：[element].addEventListener(‘xxx’,function(){},false)</p>
+<p>移除：[element].removeEventListener(‘xxx’,function()</p>
+<p>[IE6~8]：[element].attachEvent(‘onxxx’,function(){}) 移除使用的是dettachEvent。</p>
+<p>DOM2事件绑定可以给当前元素的某一个事件行为绑定“多个不同的方法”。</p>
+<hr>
+<p><strong>DOM0事件绑定和DOM2事件绑定的区别</strong></p>
+<ul>
+<li><p>DOM0采用的是给私有属性赋值，所以只能绑定一个方法</p>
+</li>
+<li><p>DOM2采用的是事件池机制，所以能绑定多个不同的方法</p>
+</li>
+<li><p>DOM2事件绑定中增加了一些DOM0无法操作的事件行为，例如：DOMContentLoaded事件（当页面中的HTML结构加载完成就会触发执行）</p>
+</li>
+</ul>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><p>当事件函数触发执行时，浏览器还给函数传递了一个实参信息值 ==&gt;这个值就是事件对象（MouseEvent鼠标事件对象、KeyboardEvent键盘事件对象、Event普通事件对象…）</p>
+<p><strong>MouseEvent</strong></p>
+<ul>
+<li><p>ev.target：事件源（操作的是哪个元素）</p>
+</li>
+<li><p>ev.clientX / ev.clientY ：当前鼠标触发点距离当前窗口左上角的X/Y轴坐标</p>
+</li>
+<li><p>ev.pageX / ev.pageY：当前鼠标触发点距离BODY(第一</p>
+<p>屏幕)左上角的X/Y轴坐标</p>
+</li>
+<li><p>ev.preventDefault()：阻止默认行为</p>
+</li>
+<li><p>ev.stopPropagation()：阻止事件的冒泡传播</p>
+</li>
+<li><p>ev.type：当前事件类型</p>
+</li>
+</ul>
+<p><strong>KeyboardEvent</strong></p>
+<ul>
+<li><p>ev.code：当前按键’keyE’</p>
+</li>
+<li><p>ev.key：当前按键’e’</p>
+</li>
+<li><p>ev.which / ev.keyCode：当前按键的键盘码 69</p>
+<blockquote>
+<p>/*</p>
+<ul>
+<li>左-上-右-下：37-38-39-40</li>
+<li>Backspace：8</li>
+<li>Enter：13</li>
+<li>Space：32</li>
+<li>Delete：46<br>*</li>
+<li>Shift：16</li>
+<li>Alt：18</li>
+<li>Ctrl：17</li>
+<li>ESC：27<br>*</li>
+<li>F1~F12：112 ~ 123</li>
+<li>48~57：数字键</li>
+<li>65~90：小写字母<br>*/</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><strong>IE6~8</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">box.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//=&gt;在IE低版本浏览器中，浏览器执行绑定的方法，并没有把事件对象传递进来，此时ev===undefined，需要基于window.event来获取（由于是全局属性，鼠标每次操作都会把上一次操作的值替换掉）</span></span><br><span class="line">    <span class="keyword">if</span> (!ev) &#123;</span><br><span class="line">        <span class="comment">//=&gt;低版本中没有的属性，我们手动设置一下：按照自己有的先获取到值，然后赋值给和标准对应的新属性（经过判断处理后，低版本中也有TARGET/PAGE-X/PAGE-Y这些属性了），后期再使用的时候，直接按照高版本的使用即可</span></span><br><span class="line">        ev = <span class="built_in">window</span>.event;</span><br><span class="line">        <span class="comment">// console.log(ev.srcElement);//=&gt;ev.srcElement是获取事件源（标准中使用的是ev.target）</span></span><br><span class="line">        ev.target = ev.srcElement;</span><br><span class="line">        <span class="comment">// console.log(ev.pageX);//=&gt;低版本浏览器的事件对象中不存在pageX/pageY</span></span><br><span class="line">        ev.pageX = ev.clientX + (<span class="built_in">document</span>.documentElement.scrollLeft || <span class="built_in">document</span>.body.scrollLeft);</span><br><span class="line">        ev.pageY = ev.clientY + (<span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop);</span><br><span class="line">        ev.which = ev.keyCode;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// preventDefault &amp; stopPropagation 这些在低版本下都没有</span></span><br><span class="line">        ev.preventDefault = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            ev.returnValue = <span class="literal">false</span>;<span class="comment">//=&gt;低版本阻止默认行为</span></span><br><span class="line">        &#125;;</span><br><span class="line">        ev.stopPropagation = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            ev.cancelBubble = <span class="literal">true</span>;<span class="comment">//=&gt;低版本阻止冒泡传播</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//=&gt;直接按照高版本的规则来使用即可</span></span><br><span class="line">    <span class="built_in">console</span>.log(ev.target, ev.which);</span><br><span class="line">    ev.preventDefault();</span><br><span class="line">    ev.stopPropagation();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="事件的传播机制"><a href="#事件的传播机制" class="headerlink" title="事件的传播机制"></a>事件的传播机制</h3><ul>
+<li>第一阶段：从window对象传导到目标节点，称为“捕获阶段”(capture phase)。</li>
+<li>第二阶段：在目标节点上触发，称为“目标阶段”(target phase)。</li>
+<li>第三阶段：从目标节点传导回window对象，称为“冒泡阶段”(bubbling phase)。<br>这种三阶段的传播模型，会使得一个事件在多个节点上触发。</li>
+</ul>
+<blockquote>
+<p>不同浏览器对于最外层祖先元素的定义是不一样的</p>
+<p>谷歌：window-&gt;document-&gt;html-&gt;body…</p>
+<p>IE高：window-&gt;html-&gt;body…</p>
+<p>IE低：html-&gt;body…</p>
+</blockquote>
+<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>利用事件的冒泡传播机制，如果一个容器的后代元素中，很多元素的点击行为（其它事件行为也是）都要做一些处理，此时我们不需要在像以前一样一个个获取一个个的绑定了，我们只需要给容器的CLICK绑定方法即可，这样不管点击的是哪一个后代元素，都会根据冒泡传播的传递机制，把容器的CLICK行为触发，把对应的方法执行，根据事件源，我们可以知道点击的是谁，从而做不同的事情即可，事件委托这种处理方式比一个个的事件绑定，性能提高50%左右，需要的元素越多，性能提高越大</p>
+
       
 
       
@@ -261,7 +403,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/29/Math方法/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/30/事件/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +417,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/29/Dom方法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Dom方法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/29/字符串方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">字符串方法</div>
+    <a href="/2019/09/30/回调函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">回调函数]</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -313,7 +446,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#abs：绝对值"><span class="toc-number">1.</span> <span class="toc-text">abs：绝对值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ceil-floor：向上-向下取整"><span class="toc-number">2.</span> <span class="toc-text">ceil/floor：向上/向下取整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#round：四舍五入"><span class="toc-number">3.</span> <span class="toc-text">round：四舍五入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqrt：开平方"><span class="toc-number">4.</span> <span class="toc-text">sqrt：开平方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pow：取幂-N的M次方"><span class="toc-number">5.</span> <span class="toc-text">pow：取幂(N的M次方)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#max-min-最大值和最小值"><span class="toc-number">6.</span> <span class="toc-text">max/min:最大值和最小值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PI：获取圆周率"><span class="toc-number">7.</span> <span class="toc-text">PI：获取圆周率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#random-0-1随机小数"><span class="toc-number">8.</span> <span class="toc-text">random:0~1随机小数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展-Math-round-Math-random-m-n-n-：n­-m之间的随机整数"><span class="toc-number">9.</span> <span class="toc-text">扩展:Math.round(Math.random()*(m-n)+n)：n­-m之间的随机整数</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#元素天生自带的事件"><span class="toc-number">1.</span> <span class="toc-text">元素天生自带的事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件绑定"><span class="toc-number">2.</span> <span class="toc-text">事件绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件对象"><span class="toc-number">3.</span> <span class="toc-text">事件对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件的传播机制"><span class="toc-number">4.</span> <span class="toc-text">事件的传播机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件委托"><span class="toc-number">5.</span> <span class="toc-text">事件委托</span></a></li></ol>
                     </div>
                 </span>
             </div>
