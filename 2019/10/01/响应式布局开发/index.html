@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/10/01/响应式布局开发/index.html">
 <meta property="og:site_name">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-01T11:25:14.263Z">
+<meta property="og:updated_time" content="2019-10-04T06:59:41.897Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="响应式布局开发">
   
@@ -172,18 +172,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a><a id="more"></a>响应式布局</h3><p>在不同尺寸的设备上都能良好的展示，这就是响应式布局设计（Responsive Layout）</p>
-<h3 id="产品形态："><a href="#产品形态：" class="headerlink" title="产品形态："></a>产品形态：</h3><p>​     1.PC端(全屏页面需要宽度自适应，但是一般都是固定宽度的)<br>​     2.PC+移动端用同一套项目（简单的页面，例如：产品介绍，公司展示类的官网等）<br>​     3.移动端（移动端设备尺寸差异较大，需要做响应式布局开发）<br>​       嵌入到APP中的H5<br>​       微信中分享出来的H5<br>​       微信公号<br>​       小程序<br>​       靠浏览器访问的H5<br>​       …<br>​     4.RN(React Native) / ionic / cordova … JS开发APP的框架，使用JS代码开发APP，最后框架会把代码转换为 安卓和IOS 需要的代码</p>
-<h3 id="如何实现响应式布局开发"><a href="#如何实现响应式布局开发" class="headerlink" title="如何实现响应式布局开发?"></a>如何实现响应式布局开发?</h3><p>​     最常用的方案：REM等比缩放响应式布局</p>
-<blockquote>
-<p>做移动端H5开发，首先加META标签<br>    <!--meta:vp [Tab]--></p>
-<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        <h3 id="一、了解什么是viewport视口"><a href="#一、了解什么是viewport视口" class="headerlink" title="一、了解什么是viewport视口"></a><a id="more"></a>一、了解什么是viewport视口</h3><p>  在PC端，我们开发的HTML页面运行在浏览器中，浏览器有多宽（一般浏览器代表设备的宽度）HTML就有多宽，也就是在浏览器宽度的视口中渲染和呈现我们的页面</p>
+<p>  移动端和PC端有区别：不管移动端设备(代指打开的浏览器)的宽度是多少，HTML页面的宽度是980(或者1024) =&gt;导致的问题：如果在设备窗口中想把整个页面完全呈现出来（小窗口中完全展示大页面），我们只能把大页面进行缩放，HTML页面缩放了，那么页面中所有内容都缩放了</p>
+<p>解决方案：只要让H5页面的宽度和手机设备的宽度保持一致即可，就不会出现手机渲染页面的时候把页面缩放的事情了</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name="viewport"</span><br><span class="line">      content="width=device-width, initial-scale=1.0"&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*此META标签就是在设置VP(视口)的规则</span></span><br><span class="line"><span class="comment">   width=device-width：让HTML页面的宽度等于设备的宽度</span></span><br><span class="line"><span class="comment">   height=：设置HTML页面的高度（一般不用）</span></span><br><span class="line"><span class="comment">   initial-scale=1.0：初始缩放比例是1:1（也就是既不放大						也不缩小）</span></span><br><span class="line"><span class="comment">   user-scalable=no：禁止用户手动缩放</span></span><br><span class="line"><span class="comment">   maximum-scale=1.0、minimum-scale=1.0：设置最大最小的缩放比例1:1(既不放大也不缩小 =&gt;部分安卓机中只设置user-scalable是不起作用的，需要同这两个一起使用)*/</span></span><br></pre></td></tr></table></figure>
 
-&lt;/meta&gt;</code></pre><p>REM和PX一样都是样式单位，PX是固定单位，REM是相对单位（相对于当前页面根元素HTML的字体设定的单位）</p>
-<p>我们开始给HTML的字体大小设置为100PX(1REM=100PX)，接下来我们写样式的时候，把所有的尺寸都用REM设定（测量出来的PX值/100就是应该设置的REM的值）,如果HTML的FONT-SIZE不变，用REM和PX一样，但是如果字体大小改变，也就是改变了REM和PX之间的换换算比例，那么之前所有用REM做单位的样式都会自动按照最新的比例进行缩放（实现了改动HTML的FONT-SIZE，整个页面中的元素都跟着缩放了，牵一发而动全身）</p>
-<p>真实项目中，设计师给给我们一套设计稿（常用的尺寸：640<em>1136  750</em>1334 640*960 …），拿到设计稿后，我们严格按照设计稿中的尺寸去编写样式<br>   HTML{<br>      FONT-SIZE:100PX;<br>   }<br>   接下来写样式，把测量出来的PX都除以100变为REM，所有的单位基于REM来搞<br>   =&gt;假设设计稿是750,也就相当于750的设备下,1REM=100PX</p>
-<p>我们页面运行在320的设备上，我们需要修改HTML的字体大小，以此实现页面跟着整体缩放：320/750*100 =&gt;当前设备上HTML的字体大小</p>
+<blockquote>
+<p> layout viewport：布局（页面）视口（和开发CSS等相关）<br>   visual viewport：手机视口(应用场景少)<br>   ideal viewport：理想视口（应用场景少）</p>
 </blockquote>
+<h3 id="二、实现响应式布局的几种办法"><a href="#二、实现响应式布局的几种办法" class="headerlink" title="二、实现响应式布局的几种办法"></a>二、实现响应式布局的几种办法</h3><p>1.基于@MEDIA来处理（麻烦一些）</p>
+<p>2.固定布局(viewport =&gt; width=320px)：按照设计稿把320尺寸的写好即可（所有的尺寸都可以固定，而且都是设计稿的一半 [因为设计稿是大一倍的]），在其它的设备上，让320的页面居中展示即可</p>
+<p>3.SCALE等比缩放布局（严格按照设计稿的尺寸来写样式[没有啥自适应宽度，都是固定值]，在其它设备上，首先获取设备的宽度，让其除以设计稿的宽度，然后让原始写好的页面按照这个比例整体缩小即可） =&gt;会导致一些问题例如字体变模糊…</p>
+<p>4.REM等比缩放：它是参考SCALE，只是用的REM单位来实现的等比缩放（严格按照设计稿的尺寸编写 [但是一般宽度让他自适应]，其余的值可以写成固定值 -&gt; 在编写CSS样式的时候，我们把所有的PX单位都换算成REM单位 -&gt; 当加载页面的时候，根据当前设备的尺寸除以设计稿，根据比例动态调整REM和PX的换算比例）</p>
+<p>5.CSS3中提供了flex-box伸缩盒子模型，基于这个属性，可以让某些效果处理起来更加的方便</p>
+<p>1、4、5是目前最常用的响应式布局方案</p>
 
       
 
@@ -328,7 +330,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#响应式布局"><span class="toc-number">1.</span> <span class="toc-text">响应式布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#产品形态："><span class="toc-number">2.</span> <span class="toc-text">产品形态：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何实现响应式布局开发"><span class="toc-number">3.</span> <span class="toc-text">如何实现响应式布局开发?</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、了解什么是viewport视口"><span class="toc-number">1.</span> <span class="toc-text">一、了解什么是viewport视口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、实现响应式布局的几种办法"><span class="toc-number">2.</span> <span class="toc-text">二、实现响应式布局的几种办法</span></a></li></ol>
                     </div>
                 </span>
             </div>
