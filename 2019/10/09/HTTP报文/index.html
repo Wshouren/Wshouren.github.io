@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: HTML5 | </title>
+  <title>HTTP报文 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title">
-<meta property="og:url" content="http://yoursite.com/tags/HTML5/index.html">
+  <meta name="keywords" content="HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP报文">
+<meta property="og:url" content="http://yoursite.com/2019/10/09/HTTP报文/index.html">
 <meta property="og:site_name">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-09T05:03:43.317Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title">
+<meta name="twitter:title" content="HTTP报文">
   
     <link rel="alternative" href="/atom.xml" title type="application/atom+xml">
   
@@ -150,71 +152,212 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="page-HTTP报文" class="article article-type-page " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-page">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/01/HTML5/" class="archive-article-date">
-  	<time datetime="2019-10-01T04:06:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/01/HTML5/">HTML5</a>
+    <h1 class="article-title" itemprop="name">
+      HTTP报文
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/10/09/HTTP报文/" class="archive-article-date">
+  	<time datetime="2019-10-09T04:55:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a><a id="more"></a>HTTP报文</h3><p>起始行：请求起始行、响应起始行<br>首部（头）：请求头、响应头、通用头<br>主体：请求主体、响应主体</p>
+<h3 id="General-通用头"><a href="#General-通用头" class="headerlink" title="General 通用头"></a>General 通用头</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Request URL: http://www.zhufengpeixun.cn/  请求地址</span><br><span class="line">Request Method: GET  请求方式:GET/POST/DELETE/PUT/HEAD/OPTION...</span><br><span class="line">Status Code: 304 Not Modified   响应的HTTP状态码</span><br><span class="line">Remote Address: 125.39.174.137:80  主机地址(服务器外网IP地址)</span><br><span class="line">Referrer Policy: no-referrer-when-downgrade</span><br></pre></td></tr></table></figure>
+
+<h3 id="Request-Headers-请求头-客户端设置，服务器接收"><a href="#Request-Headers-请求头-客户端设置，服务器接收" class="headerlink" title="Request Headers 请求头 [客户端设置，服务器接收]"></a>Request Headers 请求头 [客户端设置，服务器接收]</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1  =&gt;起始行(描述当前请求的一些基本信息：用的是1.1版本传输协议进行内容传输的)</span><br><span class="line">Host: www.zhufengpeixun.cn</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Cookie: ... =&gt;cookie信息一般都是放到头文件中实现和服务器端的数据通信的</span><br><span class="line">If-Modified-Since: Sun, 06 May 2018 10:02:42 GMT</span><br></pre></td></tr></table></figure>
+
+<h3 id="Response-Headers-响应头-服务器端设置，客户端获取"><a href="#Response-Headers-响应头-服务器端设置，客户端获取" class="headerlink" title="Response Headers 响应头 [服务器端设置，客户端获取]"></a>Response Headers 响应头 [服务器端设置，客户端获取]</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 304 Not Modified  =&gt;响应起始行（HTTP状态码）</span><br><span class="line">Date: Tue, 22 May 2018 09:18:56 GMT  =&gt;服务器响应内容时候的“服务器端时间”（客户端获取这个时间的时候已经和真实的时间产生误差了，因为服务器返回内容到客户端接收到，也是需要时间的），并且这个时间是格林尼治时间（比北京时间慢8小时，北京时间是GMT+0800）</span><br><span class="line">Connection: keep-alive</span><br><span class="line">ETag: &quot;700a6f-17f43-56b86a77513d3&quot;</span><br><span class="line">Vary: Accept-Encoding,User-Agent</span><br><span class="line">Server: yunjiasu-nginx  //=&gt;管理WEB服务的工具</span><br><span class="line">CF-RAY: 41ee32c192db66b8-TSN</span><br></pre></td></tr></table></figure>
+
+<h3 id="Response-响应主体"><a href="#Response-响应主体" class="headerlink" title="Response [响应主体]"></a>Response [响应主体]</h3><p>  服务器返回的是啥就是啥</p>
+<h3 id="Request-Payload-Form-Data-请求主体"><a href="#Request-Payload-Form-Data-请求主体" class="headerlink" title="Request Payload / Form Data  [请求主体]"></a>Request Payload / Form Data  [请求主体]</h3><p>客户端传递给服务器的内容</p>
+<blockquote>
+<ol start="2">
+<li><p>了解HTTP报文以及如何查看对未来工作开发和BUG调试至关重要<br>以后涉及到交互功能（前端&lt;=&gt;后台）出现问题，都按照如下方式查找问题原因<br>A:打开控制台，在NET-WORK中找到当前交互的请求地址，点击进去看详情<br>B:如果是传递给服务器的参数或者方式错误 [前端问题]<br>C:如果服务器返回的信息有错误或者和API接口文档规定的内容不一样 [后台问题]<br>D:如果返回数据是对的，但是展示有问题 [前端问题]</p>
+<p>确定是自己前端的问题后，基于断点(或者代码中的debugger)或者控制台输出等方式，开始逐步调试即可</p>
+</li>
+<li><p>客户端和服务器端信息交互的方式<br>[客户端传递给服务器]<br>  A:问号传参<br>   请求的URL地址末尾通过问号传参方式，把一些信息传递给服务器<br>   /stu/info?id=12&amp;lx=man</p>
+<p>  B:设置请求头<br>   客户端把需要传递给服务器的内容设置到请求头信息中（自定义请求头）,服务器可以通过接收请求头信息把内容得到</p>
+<p>  C:设置请求主体<br>   xhr.send([AJAX SEND中传递的内容，就是客户端设置的请求主体内容，服务器端可以接收到这些信息的]);</p>
+<p>[服务器返回给客户端]<br>  A:设置响应头信息<br>   例如把服务时间通过响应头返回给客户端，客户端通过获取响应头信息得到这个时间（响应头返回的速度是优先于响应主体的）</p>
+<p>  B:设置响应主体<br>   主要的返回信息都在响应主体中</p>
+</li>
+</ol>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTTP</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/HTML5//" class="article-tag-list-link color1">HTML5</a>
+        			<a href="/categories/HTTP//" class="article-tag-list-link color5">HTTP</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/09/HTTP报文/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/10/08/BFC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BFC</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP报文"><span class="toc-number">1.</span> <span class="toc-text">HTTP报文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#General-通用头"><span class="toc-number">2.</span> <span class="toc-text">General 通用头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Request-Headers-请求头-客户端设置，服务器接收"><span class="toc-number">3.</span> <span class="toc-text">Request Headers 请求头 [客户端设置，服务器接收]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Response-Headers-响应头-服务器端设置，客户端获取"><span class="toc-number">4.</span> <span class="toc-text">Response Headers 响应头 [服务器端设置，客户端获取]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Response-响应主体"><span class="toc-number">5.</span> <span class="toc-text">Response [响应主体]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Request-Payload-Form-Data-请求主体"><span class="toc-number">6.</span> <span class="toc-text">Request Payload / Form Data  [请求主体]</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -237,9 +380,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -307,7 +450,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -315,15 +458,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">网络通信原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>
