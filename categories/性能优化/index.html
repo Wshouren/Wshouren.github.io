@@ -6,17 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>定时器 | </title>
+  <title>Category: 性能优化 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="JAVASCRIPT">
-<meta property="og:type" content="article">
-<meta property="og:title" content="定时器">
-<meta property="og:url" content="http://yoursite.com/2019/09/30/定时器/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title">
+<meta property="og:url" content="http://yoursite.com/categories/性能优化/index.html">
 <meta property="og:site_name">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-30T13:27:04.750Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="定时器">
+<meta name="twitter:title">
   
     <link rel="alternative" href="/atom.xml" title type="application/atom+xml">
   
@@ -152,234 +150,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-定时器" class="article article-type-page " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      定时器
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-page">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/10/09/前端开发性能优化方案/" class="archive-article-date">
+  	<time datetime="2019-10-09T05:11:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/10/09/前端开发性能优化方案/">前端开发性能优化方案</a>
     </h1>
   
 
-        
-        <a href="/2019/09/30/定时器/" class="archive-article-date">
-  	<time datetime="2019-09-30T12:10:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="常用定时器"><a href="#常用定时器" class="headerlink" title="常用定时器"></a><a id="more"></a>常用定时器</h3><ul>
-<li>setTimeout(function,interval):执行一次</li>
-<li>setInterval(function,interval):执行多次</li>
-</ul>
-<blockquote>
-<p>function:到达时间后执行的方法，设定时不执行</p>
-<p>interval：时间因子（需要等到的时间 MS）</p>
-</blockquote>
-<h3 id="清除定时器"><a href="#清除定时器" class="headerlink" title="清除定时器"></a>清除定时器</h3><p>clearTimeout / clearInterval：这两个方法中的任何一个都可以清除用任何方法创建的定时器。设置定时器会有一个返回值，这个值是一个数字，属于定时器的编号，代表当前是第几个定时器（不管是基于setTimeout还是setInterval创建定时器，这个编号会累加）</p>
-<h3 id="JS中的同步编程和异步编程"><a href="#JS中的同步编程和异步编程" class="headerlink" title="JS中的同步编程和异步编程"></a>JS中的同步编程和异步编程</h3><ul>
-<li>同步编程：任务是按照顺序依次处理，当前这件事没有彻底做完，下一件事是执行不了的</li>
-<li>异步编程：当前这件事没有彻底做完，需要等待一段时间才能继续处理，此时我们不等，继续执行下面的任务，当后面的任务完成后，再去把没有彻底完成的事情完成</li>
-</ul>
-<h3 id="JS中的异步编程"><a href="#JS中的异步编程" class="headerlink" title="JS中的异步编程"></a>JS中的异步编程</h3><ul>
-<li><p>所有的事件绑定都是异步编程   xxx.onclick=function(){}</p>
-</li>
-<li><p>所有的定时器都是异步编程 setTimeout(function(){},1000)</p>
-</li>
-<li><p>AJAX中一般都使用异步编程处理</p>
-</li>
-<li><p>回调函数也算是异步编程</p>
-<p>…</p>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//=&gt;定时器设定一个时间，到达时间后不一定执行（如果当前还有其它的同步任务正在处理，那么到时间了也得等着）</span></span><br><span class="line"><span class="keyword">let</span> n = <span class="number">0</span>;</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(++n);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(n);<span class="comment">//=&gt;0</span></span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>===<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="comment">//=&gt;死循环</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="浏览器是如何规划同步异步机制的"><a href="#浏览器是如何规划同步异步机制的" class="headerlink" title="浏览器是如何规划同步异步机制的"></a>浏览器是如何规划同步异步机制的</h3><ul>
-<li>浏览器是多线程的，JS是单线程的（浏览器只给JS执行分配一个线程）：单线程的特点就是一次只能处理一件事情<br>进程：每一个应用程序都可以理解为一个进程（浏览器打开一个页面，就相当于开辟一个进程），在一个程序中（进程中）我们经常会同时干很多事情，此时我们可以分配多个线程去同时完成多项任务</li>
-<li>JS在单线程中实现异步的机制，主要依赖于浏览器的任务队列完成的。浏览器中有两个任务队列（主任务队列、等待任务队列）</li>
-</ul>
-<blockquote>
-<p>1.在主任务队列自上而下执行的时候，如果遇到一个异步操作任务，没有立即执行，而是把它放到等待任务队列中排队</p>
-<p>2.当主任务队列完成后才会到等待队列中进行查找（主任务队列完不成，不管等待任务队列中是否有到达时间的，都不处理，继续等待主任务队列完成，因为js是单线程的，一次只能处理一件事情）</p>
-<p>3.等待任务队列中谁先到条件了（如果有很多都达到条件了谁先达到的，就先处理谁），就把这个任务重新放到主任务队列中去执行，把这个任务执行完，再去等待队列中查找</p>
-</blockquote>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JAVASCRIPT</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能优化</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JAVASCRIPT//" class="article-tag-list-link color1">JAVASCRIPT</a>
+        			<a href="/categories/性能优化//" class="article-tag-list-link color5">性能优化</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/30/定时器/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/09/30/回调函数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          回调函数]
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/09/30/继承/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">继承</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用定时器"><span class="toc-number">1.</span> <span class="toc-text">常用定时器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#清除定时器"><span class="toc-number">2.</span> <span class="toc-text">清除定时器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中的同步编程和异步编程"><span class="toc-number">3.</span> <span class="toc-text">JS中的同步编程和异步编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中的异步编程"><span class="toc-number">4.</span> <span class="toc-text">JS中的异步编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器是如何规划同步异步机制的"><span class="toc-number">5.</span> <span class="toc-text">浏览器是如何规划同步异步机制的</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -402,10 +237,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",

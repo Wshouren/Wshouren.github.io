@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>定时器 | </title>
+  <title>前端开发性能优化方案 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="JAVASCRIPT">
+  <meta name="keywords" content="性能优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="定时器">
-<meta property="og:url" content="http://yoursite.com/2019/09/30/定时器/index.html">
+<meta property="og:title" content="前端开发性能优化方案">
+<meta property="og:url" content="http://yoursite.com/2019/10/09/前端开发性能优化方案/index.html">
 <meta property="og:site_name">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-30T13:27:04.750Z">
+<meta property="og:updated_time" content="2019-10-09T05:28:27.811Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="定时器">
+<meta name="twitter:title" content="前端开发性能优化方案">
   
     <link rel="alternative" href="/atom.xml" title type="application/atom+xml">
   
@@ -152,61 +152,100 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-定时器" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="page-前端开发性能优化方案" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      定时器
+      前端开发性能优化方案
     </h1>
   
 
         
-        <a href="/2019/09/30/定时器/" class="archive-article-date">
-  	<time datetime="2019-09-30T12:10:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
+        <a href="/2019/10/09/前端开发性能优化方案/" class="archive-article-date">
+  	<time datetime="2019-10-09T05:11:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="常用定时器"><a href="#常用定时器" class="headerlink" title="常用定时器"></a><a id="more"></a>常用定时器</h3><ul>
-<li>setTimeout(function,interval):执行一次</li>
-<li>setInterval(function,interval):执行多次</li>
+        <h3 id="减少HTTP请求次数和请求大小"><a href="#减少HTTP请求次数和请求大小" class="headerlink" title="减少HTTP请求次数和请求大小"></a><a id="more"></a>减少HTTP请求次数和请求大小</h3><ul>
+<li><p>尽量合并CSS和JS文件（把需要引入的CSS合并为一个，JS也是合并为一个），原理是在减少HTTP请求次数，尽可能的把合并后的代码进行压缩，减小HTTP请求资源的大小<br>  A:webpack这种自动化构建工具，可以帮我们实现代码的合并和压缩（工程化开发）<br>  B:在移动开发(或者追求高性能的PC端开发[例如百度首页])，如果CSS或者JS不是需要很多，我们可以选择把css和js编程内嵌式（也就是代码直接写在HTML中）</p>
+</li>
+<li><p>采用图片的“懒加载”（延迟加载）<br>  目的是为了减少页面“第一次加载”过程中HTTP的请求次数，让页面打开速度变快<br>  步骤：开始加载页面的时候，所有的真实图片都不去发送HTTP请求加载，而是给一张占位的背景图，当页面加载完，并且图片在可视区域内我们再去做图片加载</p>
+</li>
+<li><p>利用浏览器和服务器端的缓存技术(304缓存)，把一些不经常更新的静态资源文件做缓存处理（例如：JS、CSS、静态图片等都可以做缓存）<br>   原理是为了减少HTTP请求大小，让获取速度更快</p>
+</li>
+<li><p>CSS雪碧图技术(css sprite / css 图片精灵)<br>  把所有相对较小资源图片汇总到一张大图上，后期我们只需要把大图加载下来，用背景定位的方式展示对应的小图即可</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">'xxx.png'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">   <span class="attribute">background-position</span>:xx xx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box2</span>&#123;</span><br><span class="line">   <span class="attribute">background-position</span>:xx xx;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">&lt;div class='bg box1'&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>减少对于COOKIE的使用（最主要的是减少本地COOKIE存储内容的大小），因为客户端操作COOKIE的时候，这些信息总是在客户端和服务器端传来传去</p>
+</li>
+<li><p>在客户端和服务器端进行信息交互的时候，对于多项数据我们尽可能基于JSON格式来进行传送（JSON格式的数据处理方便，资源偏小） ==&gt;相对于XML格式的传输才会有这个优势</p>
+</li>
+<li><p>尽可能实现JS的封装（低耦合高内聚），减少页面中的冗余代码（减少HTTP请求资源的大小）</p>
+</li>
+<li><p>在基于AJAX的GET请求进行数据交互的时候，根据需求可以让其产生缓存（这个缓存不是304缓存），这样下一次从相同地址获取的数据是上一次缓存的数据（但是很少用，项目中一般刻意清除这个缓存的时候偏多）</p>
+</li>
+<li><p>利用H5中提供的localstorage本地存储或者是manifest离线缓存，做一些信息的本地存储，下一次加载页面的时候直接从本地获取，减少HTTP请求次数</p>
+</li>
 </ul>
-<blockquote>
-<p>function:到达时间后执行的方法，设定时不执行</p>
-<p>interval：时间因子（需要等到的时间 MS）</p>
+<h3 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h3><blockquote>
+<p>  -&gt;有利于SEO<br>  -&gt;有利于扩展维护<br>  -&gt;有利于减少性能消耗<br>  [JS代码优化的108条建议]  [雅虎CSS优化的36条建议]<br>  …</p>
 </blockquote>
-<h3 id="清除定时器"><a href="#清除定时器" class="headerlink" title="清除定时器"></a>清除定时器</h3><p>clearTimeout / clearInterval：这两个方法中的任何一个都可以清除用任何方法创建的定时器。设置定时器会有一个返回值，这个值是一个数字，属于定时器的编号，代表当前是第几个定时器（不管是基于setTimeout还是setInterval创建定时器，这个编号会累加）</p>
-<h3 id="JS中的同步编程和异步编程"><a href="#JS中的同步编程和异步编程" class="headerlink" title="JS中的同步编程和异步编程"></a>JS中的同步编程和异步编程</h3><ul>
-<li>同步编程：任务是按照顺序依次处理，当前这件事没有彻底做完，下一件事是执行不了的</li>
-<li>异步编程：当前这件事没有彻底做完，需要等待一段时间才能继续处理，此时我们不等，继续执行下面的任务，当后面的任务完成后，再去把没有彻底完成的事情完成</li>
-</ul>
-<h3 id="JS中的异步编程"><a href="#JS中的异步编程" class="headerlink" title="JS中的异步编程"></a>JS中的异步编程</h3><ul>
-<li><p>所有的事件绑定都是异步编程   xxx.onclick=function(){}</p>
+<ul>
+<li><p>在JS中尽量减少闭包的使用（原因：闭包会产生不释放的栈内存）<br>  A:循环给元素做事件绑定的时候，尽可能的把后期需要的信息（例如索引）存储到元素的自定义属性上，而不是创建闭包存储<br>  B:可以在最外层形成一个闭包，把一些后续需要的公共信息进行存储，而不是每一个方法都创建闭包(例如单例模式)<br>  C:尽可能的手动释放不被占用的内存<br>  …</p>
 </li>
-<li><p>所有的定时器都是异步编程 setTimeout(function(){},1000)</p>
+<li><p>尽量使用字体图标或者SVG图标，来代替传统的PNG等格式的图片（因为字体图标等是矢量图(基于代码编写出来的)，放大不会变形，而且渲染速度快，相对比位图要小一些）</p>
 </li>
-<li><p>AJAX中一般都使用异步编程处理</p>
+<li><p>减少对DOM的操作（主要是减少DOM的重绘和回流(重排)）<br>  A:关于重排的分离读写<br>  B:使用文档碎片或者字符串拼接做数据绑定(DOM的动态创建)</p>
 </li>
-<li><p>回调函数也算是异步编程</p>
-<p>…</p>
+<li><p>在JS中避免“嵌套循环”（这种会额外增加很多循环次数）和“死循环”（一旦遇到死循环浏览器就卡壳了）</p>
+</li>
+<li><p>尽可能使用事件委托(事件代理)来处理事件绑定的操作，减少DOM的频繁操作，其中包括给每一个DOM元素做事件绑定</p>
+</li>
+<li><p>尽量减少CSS表达式的使用(expression)</p>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//=&gt;定时器设定一个时间，到达时间后不一定执行（如果当前还有其它的同步任务正在处理，那么到时间了也得等着）</span></span><br><span class="line"><span class="keyword">let</span> n = <span class="number">0</span>;</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(++n);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(n);<span class="comment">//=&gt;0</span></span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>===<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="comment">//=&gt;死循环</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#myDiv</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="built_in">expression</span>(document.body.offsetWidth - 110 + <span class="string">"px"</span>);</span><br><span class="line">  <span class="attribute">top</span>: <span class="built_in">expression</span>(document.body.offsetHeight - 110 + <span class="string">"px"</span>);</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="浏览器是如何规划同步异步机制的"><a href="#浏览器是如何规划同步异步机制的" class="headerlink" title="浏览器是如何规划同步异步机制的"></a>浏览器是如何规划同步异步机制的</h3><ul>
-<li>浏览器是多线程的，JS是单线程的（浏览器只给JS执行分配一个线程）：单线程的特点就是一次只能处理一件事情<br>进程：每一个应用程序都可以理解为一个进程（浏览器打开一个页面，就相当于开辟一个进程），在一个程序中（进程中）我们经常会同时干很多事情，此时我们可以分配多个线程去同时完成多项任务</li>
-<li>JS在单线程中实现异步的机制，主要依赖于浏览器的任务队列完成的。浏览器中有两个任务队列（主任务队列、等待任务队列）</li>
+<ul>
+<li>减少使用标签选择器，CSS选择器解析规则是从右向左解析</li>
 </ul>
-<blockquote>
-<p>1.在主任务队列自上而下执行的时候，如果遇到一个异步操作任务，没有立即执行，而是把它放到等待任务队列中排队</p>
-<p>2.当主任务队列完成后才会到等待队列中进行查找（主任务队列完不成，不管等待任务队列中是否有到达时间的，都不处理，继续等待主任务队列完成，因为js是单线程的，一次只能处理一件事情）</p>
-<p>3.等待任务队列中谁先到条件了（如果有很多都达到条件了谁先达到的，就先处理谁），就把这个任务重新放到主任务队列中去执行，把这个任务执行完，再去等待队列中查找</p>
-</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.link</span> <span class="selector-tag">a</span>&#123;</span><br><span class="line">   先找到所有的A，再筛选是在.link样式类中的，再次筛选是在.container样式类中的... 先找到的是所有的A，操作起来是消耗性能的，我们在使用CSS选择器的时候尽可能减少对标签选择器的使用</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>CSS中设置定位后，最好使用Z-INDEX改变盒子的层级，让所有的盒子不在相同的平面上，这样后续处理的时候，性能有那么一丢丢的提高</p>
+</li>
+<li><p>CSS中尽量减少对于filter滤镜属性的使用(这个属性消耗性能较大一些)</p>
+</li>
+<li><p>在CSS导入的时候尽量减少使用@import导入式，因为@import是同步操作，只有把这个对应的CSS导入，才会向下加载，而link是异步操作</p>
+</li>
+<li><p>配置ETag(有点类似于304缓存)</p>
+</li>
+<li><p>使用window.requestAnimationFrame（JS中的帧动画）代替传统的定时器动画</p>
+</li>
+<li><p>减少递归的使用，避免死递归，避免由于递归导致的栈内存嵌套（建议使用尾递归）</p>
+</li>
+<li><p>避免使用iframe（不仅不好管控样式，而且相当于在A页面中加载了其它页面，消耗较大）</p>
+</li>
+</ul>
+<h3 id="DNS及HTTP通信方式的优化"><a href="#DNS及HTTP通信方式的优化" class="headerlink" title="DNS及HTTP通信方式的优化"></a>DNS及HTTP通信方式的优化</h3><ul>
+<li>页面中出现音视频标签，我们不让页面加载的时候就去加载这些资源（要不然页面加载速度会变慢）（方案：只需要设置 preload=’none’ 即可），等待页面加载完成，音视频播放的时候我们在去加载音视频资源</li>
+<li>页面中的数据获取采用异步编程和延迟分批加载<br>  使用异步获取数据，是为了降低HTTP通道的堵塞，不会因为数据没有请求回来耽误下面信息的渲染，提高页面的打开速度（我们可以这样处理：需要动态绑定数据的区域先隐藏，等数据返回并且绑定完成后在让其显示）<br>  延迟分批加载类似于图片懒加载，是为了减少第一次页面加载时候的HTTP请求次数</li>
+<li>基于SCRIPT调取JS的时候，可已使用 defer或者async 来异步加载</li>
+</ul>
+<h3 id="重量级优化：做CDN加速（烧钱机器）"><a href="#重量级优化：做CDN加速（烧钱机器）" class="headerlink" title="重量级优化：做CDN加速（烧钱机器）"></a>重量级优化：做CDN加速（烧钱机器）</h3><h3 id="额外技巧"><a href="#额外技巧" class="headerlink" title="额外技巧"></a>额外技巧</h3><p>1.我们一般都把CSS放到BODY上，把JS放到BODY下面（原因：让其先加载CSS在加载JS，先加载CSS是为了保证页面渲染的过程中，元素是带着样式渲染的，而JS一般都是用来操作DOM元素的，需要等到元素加载完再操作）</p>
+<p>2.能用CSS搞定的绝对不用JS，能用原生JS搞定的绝对不用插件，绝对不使用FLASH（除了音视频的低版本浏览器播放）<br>  =&gt;CSS处理动画等功能的性能优于JS，而且CSS中的transform变形还开起了硬件加速</p>
+<p>3.JS中尽量减少对EVAL的使用，因为JS合并压缩的时候，可能出现由于符号不完善，导致的代码执行优先级错乱问题，EVAL处理起来消耗的性能也是偏大一点的</p>
+<p>4.使用keep-alive实现客户端和服务器端的长连接</p>
+<p>5.尽量使用设计模式来管理我们的代码（单例、构造、Promise、发布订阅），方便后期的升级和维护</p>
+<p>6.开启服务器端的gzip压缩（这个压缩可以有效减少请求资源文件的大小），其实客户端的图片等资源也是可以进行压缩的（但是对于24位的位图，压缩后可能会变模糊）</p>
+<p>7.页面中不要出现无效的链接（利于SEO优化），还有其它技巧：提高关键字曝光率、img需要加alt、设置meta标签、标签语义化…</p>
+<p>8.避免使用with语句（非常耗性能）</p>
 
       
 
@@ -241,7 +280,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JAVASCRIPT</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能优化</a>
         		</li>
       		
 		</ul>
@@ -253,7 +292,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JAVASCRIPT//" class="article-tag-list-link color1">JAVASCRIPT</a>
+        			<a href="/categories/性能优化//" class="article-tag-list-link color5">性能优化</a>
         		</li>
       		
 		</ul>
@@ -308,7 +347,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/30/定时器/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/09/前端开发性能优化方案/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -322,18 +361,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/30/回调函数/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/10/AJAX/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          回调函数]
+          AJAX
         
       </div>
     </a>
   
   
-    <a href="/2019/09/30/继承/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">继承</div>
+    <a href="/2019/10/09/HTTP报文/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTTP报文</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -360,7 +399,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用定时器"><span class="toc-number">1.</span> <span class="toc-text">常用定时器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#清除定时器"><span class="toc-number">2.</span> <span class="toc-text">清除定时器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中的同步编程和异步编程"><span class="toc-number">3.</span> <span class="toc-text">JS中的同步编程和异步编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中的异步编程"><span class="toc-number">4.</span> <span class="toc-text">JS中的异步编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器是如何规划同步异步机制的"><span class="toc-number">5.</span> <span class="toc-text">浏览器是如何规划同步异步机制的</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#减少HTTP请求次数和请求大小"><span class="toc-number">1.</span> <span class="toc-text">减少HTTP请求次数和请求大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码优化"><span class="toc-number">2.</span> <span class="toc-text">代码优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS及HTTP通信方式的优化"><span class="toc-number">3.</span> <span class="toc-text">DNS及HTTP通信方式的优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重量级优化：做CDN加速（烧钱机器）"><span class="toc-number">4.</span> <span class="toc-text">重量级优化：做CDN加速（烧钱机器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#额外技巧"><span class="toc-number">5.</span> <span class="toc-text">额外技巧</span></a></li></ol>
                     </div>
                 </span>
             </div>

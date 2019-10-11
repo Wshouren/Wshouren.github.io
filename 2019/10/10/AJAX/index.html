@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>定时器 | </title>
+  <title>AJAX | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="JAVASCRIPT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="定时器">
-<meta property="og:url" content="http://yoursite.com/2019/09/30/定时器/index.html">
+<meta property="og:title" content="AJAX">
+<meta property="og:url" content="http://yoursite.com/2019/10/10/AJAX/index.html">
 <meta property="og:site_name">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-30T13:27:04.750Z">
+<meta property="og:image" content="http://yoursite.com/img/%E5%85%A8%E5%B1%80%E5%88%B7%E6%96%B0%E5%92%8C%E5%B1%80%E9%83%A8%E5%88%B7%E6%96%B0.png">
+<meta property="og:updated_time" content="2019-10-11T08:23:06.468Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="定时器">
+<meta name="twitter:title" content="AJAX">
+<meta name="twitter:image" content="http://yoursite.com/img/%E5%85%A8%E5%B1%80%E5%88%B7%E6%96%B0%E5%92%8C%E5%B1%80%E9%83%A8%E5%88%B7%E6%96%B0.png">
   
     <link rel="alternative" href="/atom.xml" title type="application/atom+xml">
   
@@ -152,61 +154,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-定时器" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="page-AJAX" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      定时器
+      AJAX
     </h1>
   
 
         
-        <a href="/2019/09/30/定时器/" class="archive-article-date">
-  	<time datetime="2019-09-30T12:10:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
+        <a href="/2019/10/10/AJAX/" class="archive-article-date">
+  	<time datetime="2019-10-10T04:41:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="常用定时器"><a href="#常用定时器" class="headerlink" title="常用定时器"></a><a id="more"></a>常用定时器</h3><ul>
-<li>setTimeout(function,interval):执行一次</li>
-<li>setInterval(function,interval):执行多次</li>
-</ul>
-<blockquote>
-<p>function:到达时间后执行的方法，设定时不执行</p>
-<p>interval：时间因子（需要等到的时间 MS）</p>
-</blockquote>
-<h3 id="清除定时器"><a href="#清除定时器" class="headerlink" title="清除定时器"></a>清除定时器</h3><p>clearTimeout / clearInterval：这两个方法中的任何一个都可以清除用任何方法创建的定时器。设置定时器会有一个返回值，这个值是一个数字，属于定时器的编号，代表当前是第几个定时器（不管是基于setTimeout还是setInterval创建定时器，这个编号会累加）</p>
-<h3 id="JS中的同步编程和异步编程"><a href="#JS中的同步编程和异步编程" class="headerlink" title="JS中的同步编程和异步编程"></a>JS中的同步编程和异步编程</h3><ul>
-<li>同步编程：任务是按照顺序依次处理，当前这件事没有彻底做完，下一件事是执行不了的</li>
-<li>异步编程：当前这件事没有彻底做完，需要等待一段时间才能继续处理，此时我们不等，继续执行下面的任务，当后面的任务完成后，再去把没有彻底完成的事情完成</li>
-</ul>
-<h3 id="JS中的异步编程"><a href="#JS中的异步编程" class="headerlink" title="JS中的异步编程"></a>JS中的异步编程</h3><ul>
-<li><p>所有的事件绑定都是异步编程   xxx.onclick=function(){}</p>
-</li>
-<li><p>所有的定时器都是异步编程 setTimeout(function(){},1000)</p>
-</li>
-<li><p>AJAX中一般都使用异步编程处理</p>
-</li>
-<li><p>回调函数也算是异步编程</p>
-<p>…</p>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//=&gt;定时器设定一个时间，到达时间后不一定执行（如果当前还有其它的同步任务正在处理，那么到时间了也得等着）</span></span><br><span class="line"><span class="keyword">let</span> n = <span class="number">0</span>;</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(++n);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(n);<span class="comment">//=&gt;0</span></span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>===<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="comment">//=&gt;死循环</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="一、什么是AJAX"><a href="#一、什么是AJAX" class="headerlink" title="一、什么是AJAX"></a><a id="more"></a>一、什么是AJAX</h3><p>async javascript and xml 异步的JS和XML</p>
+<p>在AJAX中的异步不是我们理解的同步异步编程，而是泛指“局部刷新”，但是我们在以后的AJAX请求中尽可能使用异步获取数据（因为异步数据获取不会阻塞下面代码的执行）</p>
+<p> XML是一种文件格式（我们可以把HTML理解为XML的一种）：可扩展的标记语言，它的作用是用自己扩展的一些语义标签来存储一些数据和内容，这样存储的好处是清晰的展示出数据的结构</p>
+<p> 很久以前，AJAX刚刚兴起的时候，客户端从服务器端获取数据，服务器为了清晰的表达数据结构，都是返回XML格式的内容，当下，我们获取的数据一般都是JSON格式的内容，JSON相对于XML来说，也能清晰表达数据结构，而且访问里面数据的时候操作起来比XML更简便（但是现在某些项目中，服务器返回给客户端的数据不单纯是数据，而是数据和需要展示的结构拼接好的结果(类似于我们自己做的字符串拼接)，换句话说，是服务器端把数据和结构拼接好返回给我们，此时返回的数据格式一般都是XML格式的字符串）</p>
+<p><strong>全局刷新与局部刷新：</strong></p>
+<p><img src="/img/%E5%85%A8%E5%B1%80%E5%88%B7%E6%96%B0%E5%92%8C%E5%B1%80%E9%83%A8%E5%88%B7%E6%96%B0.png" alt="全局刷新和局部刷新"></p>
+<h3 id="二、AJAX操作"><a href="#二、AJAX操作" class="headerlink" title="二、AJAX操作"></a>二、AJAX操作</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//=&gt;创建AJAX实例：IE6中是不兼容的，使用的是new ActiveXObject来实现的</span></span><br><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"></span><br><span class="line"><span class="comment">//=&gt;打开请求：发送请求之前的一些配置项</span></span><br><span class="line"><span class="comment">//1.HTTP METHOD 请求方式</span></span><br><span class="line"><span class="comment">// GET/DELETE/HEAD/OPTIONS/TRACE/CONNECT</span></span><br><span class="line"><span class="comment">// POST/PUT</span></span><br><span class="line"><span class="comment">//2.URL 向服务器端发送请求的API（Application Programming Interface）接口地址</span></span><br><span class="line"><span class="comment">//3.ASYNC 设置AJAX请求的同步异步，默认是异步（写TRUE也是异步），FALSE是同步，项目中都使用异步编程，防止阻塞后续代码执行</span></span><br><span class="line"><span class="comment">//4.USER-NAME/USER-PASS：用户名密码，一般不用</span></span><br><span class="line">xhr.open([HTTP METHOD],[URL],[ASYNC],[USER-NAME],[USER-PASS]);</span><br><span class="line"></span><br><span class="line"><span class="comment">//=&gt;3.事件监听：一般监听的都是 READY-STATE-CHANGE 事件（AJAX状态改变事件），基于这个事件可以获取服务器返回的响应头响应主体内容</span></span><br><span class="line">xhr.onreadystatechange=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState===<span class="number">4</span> &amp;&amp; xhr.status===<span class="number">200</span>)&#123;</span><br><span class="line">       xhr.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//=&gt;4.发送AJAX请求：从这步开始，当前AJAX任务开始，如果AJAX是同步的，后续代码不会执行，要等到AJAX状态成功后在执行，反之异步不会</span></span><br><span class="line">xhr.send([请求主体内容]);</span><br></pre></td></tr></table></figure>
 
-<h3 id="浏览器是如何规划同步异步机制的"><a href="#浏览器是如何规划同步异步机制的" class="headerlink" title="浏览器是如何规划同步异步机制的"></a>浏览器是如何规划同步异步机制的</h3><ul>
-<li>浏览器是多线程的，JS是单线程的（浏览器只给JS执行分配一个线程）：单线程的特点就是一次只能处理一件事情<br>进程：每一个应用程序都可以理解为一个进程（浏览器打开一个页面，就相当于开辟一个进程），在一个程序中（进程中）我们经常会同时干很多事情，此时我们可以分配多个线程去同时完成多项任务</li>
-<li>JS在单线程中实现异步的机制，主要依赖于浏览器的任务队列完成的。浏览器中有两个任务队列（主任务队列、等待任务队列）</li>
-</ul>
+<h3 id="三、关于HTTP请求方式的一点学习"><a href="#三、关于HTTP请求方式的一点学习" class="headerlink" title="三、关于HTTP请求方式的一点学习"></a>三、关于HTTP请求方式的一点学习</h3><p>所有的请求都可以给服务器端传递内容，也都可以从服务器端获取内容<br>  GET：从服务器端获取数据(给的少拿的多)<br>  POST：向服务器端推送数据(给的多拿的少)<br>  DELETE：删除服务器端的某些内容（一般是删除一些文件）<br>  PUT：向服务器上存放一些内容（一般也是存放文件）<br>  HEAD：只想获取服务器返回的响应头信息，不要响应主体中的内容<br>  OPTIONS：一般使用它向服务器发送一个探测性请求，如果服务器端返回的信息了，说明当前客户端和服务器端建立了连接，我们可以继续执行其它请求了（TRACE是干这件事的，但是axios这个AJAX类库在基于cross domain进行跨域请求的时候，就是先发送OPTIONS请求进行探测尝试，如果能连通服务器，才会继续发送其它的请求）</p>
+<h3 id="四、GET-VS-POST"><a href="#四、GET-VS-POST" class="headerlink" title="四、GET VS POST"></a>四、GET VS POST</h3><p>1.<strong>传递给服务器信息的方式不一样</strong></p>
+<p>GET是基于URL地址“问号传参”的方式把信息传递给服务器，POST是基于“请求主体”把信息传递给服务器</p>
 <blockquote>
-<p>1.在主任务队列自上而下执行的时候，如果遇到一个异步操作任务，没有立即执行，而是把它放到等待任务队列中排队</p>
-<p>2.当主任务队列完成后才会到等待队列中进行查找（主任务队列完不成，不管等待任务队列中是否有到达时间的，都不处理，继续等待主任务队列完成，因为js是单线程的，一次只能处理一件事情）</p>
-<p>3.等待任务队列中谁先到条件了（如果有很多都达到条件了谁先达到的，就先处理谁），就把这个任务重新放到主任务队列中去执行，把这个任务执行完，再去等待队列中查找</p>
+<p>问号传参请求方式的有GET|DELETE|HEAD|TRACE|OPTIONS</p>
 </blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[GET]</span><br><span class="line">    xhr.open(<span class="string">'GET'</span>,<span class="string">'/temp/list?xxx=xxx&amp;xxx=xxx'</span>)</span><br><span class="line">[POST]</span><br><span class="line">	xhr.send(<span class="string">'xxx=xxx&amp;xxx=xxx'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>  GET一般应用于拿（给服务器的会少一些），而POST给服务器的很多，如果POST是基于问号传参方式来搞会出现一些问题：URL会拼接很长，浏览器对于URL的长度有有最大限度</p>
+<p> <strong>2.GET不安全，POST相对安全</strong></p>
+<p>因为GET是基于“问号传参”把信息传递给服务器的，容易被骇客进行URL劫持，POST是基于请求主体传递的，相对来说不好被劫持；所以登录、注册等涉及安全性的交互操作，我们都应该用POST请求；</p>
+<p><strong>3.GET会产生不可控制的缓存,POST不会</strong></p>
+<p> GET请求产生缓存是因为：连续多次向相同的地址（并且传递的参数信息也是相同的）发送请求，浏览器会把之前获取的数据从缓存中拿到返回，导致无法获取服务器最新的数据（POST不会）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(<span class="string">'GET'</span>,<span class="string">`/temp/list?lx=1000&amp;_=<span class="subst">$&#123;<span class="built_in">Math</span>.random()&#125;</span>`</span>); <span class="comment">//=&gt;保证每次请求的地址不完全一致：在每一次请求的末尾追加一个随机数即可(使用_作为属性名就是不想和其它的属性名冲突)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="五、AJAX状态-READY-STATE"><a href="#五、AJAX状态-READY-STATE" class="headerlink" title="五、AJAX状态(READY-STATE)"></a>五、AJAX状态(READY-STATE)</h3><p>0 =&gt;UNSENT  刚开始创建XHR，还没有发送<br>1 =&gt;OPENED  已经执行了OPEN这个操作<br>2 =&gt;HEADERS_RECEIVED 已经发送AJAX请求（AJAX任务开始），响应头信息已经被客户端接收了（响应头中包含了：服务器的时间、返回的HTTP状态码…）<br>3 =&gt;LOADING 响应主体内容正在返回<br>4 =&gt;DONE 响应主体内容已经被客户端接收</p>
+<p>6.HTTP网络状态码(STATUS)</p>
+<h3 id="六、HTTP网络状态码-STATUS"><a href="#六、HTTP网络状态码-STATUS" class="headerlink" title="六、HTTP网络状态码(STATUS)"></a>六、HTTP网络状态码(STATUS)</h3><p>根据状态码能够清楚的反映出当前交互的结果及原因<br>  <strong>200</strong> OK 成功(只能证明服务器成功返回信息了，但是信息不一定是你业务需要的)</p>
+<p>  <strong>301</strong> Moved Permanently 永久转移（永久重定向）<br>    =&gt;域名更改，访问原始域名重定向到新的域名</p>
+<p>  <strong>302</strong> Move temporarily 临时转移（临时重定向 =&gt;<strong>307</strong>）<br>    =&gt;网站现在是基于HTTPS协议运作的，如果访问的是HTTP协议，会基于307重定向到HTTPS协议上<br>    =&gt;302一般用作服务器负载均衡：当一台服务器达到最大并发数的时候，会把后续访问的用户临时转移到其它的服务器机组上处理<br>    =&gt;偶尔真实项目中会把所有的图片放到单独的服务器上“图片处理服务器”，这样减少主服务器的压力，当用户向主服务器访问图片的时候，主服务器都把它转移到图片服务器上处理</p>
+<p>  <strong>304</strong> Not Modified 设置缓存<br>    =&gt;对于不经常更新的资源文件，例如：CSS/JS/HTML/IMG等，服务器会结合客户端设置304缓存，第一次加载过这些资源就缓存到客户端了，下次再获取的时候，是从缓存中获取；如果资源更新了，服务器端会通过最后修改时间来强制让客户端从服务器重新拉取；基于CTRL+F5强制刷新页面，304做的缓存就没有用了。</p>
+<p>  <strong>400</strong> Bad Request 请求参数错误<br>  <strong>401</strong> Unauthorized 无权限访问<br>  <strong>404</strong> Not Found  找不到资源(地址不存在)<br>  <strong>413</strong> Request Entity Too Large 和服务器交互的内容资源超过服务器最大限制</p>
+<p>  <strong>500</strong> Internal Server Error 未知的服务器错误<br>  <strong>503</strong> Service Unavailable 服务器超负荷</p>
+<h3 id="七、AJAX的属性和方法"><a href="#七、AJAX的属性和方法" class="headerlink" title="七、AJAX的属性和方法"></a>七、AJAX的属性和方法</h3><p> xhr.response  响应主体内容<br>  xhr.responseText 响应主体的内容是字符串（JSON或者XML格式字符串都可以）<br>  xhr.responseXML 响应主体的内容是XML文档</p>
+<p>  xhr.status 返回的HTTP状态码<br>  xhr.statusText 状态码的描述</p>
+<p>  xhr.timeout 设置请求超时的时间<br>  xhr.withCredentials 是否允许跨域（FALSE）</p>
+<p>  xhr.abort() 强制中断AJAX请求<br>  xhr.getAllResponseHeaders() 获取所有响应头信息<br>  xhr.getResponseHeader([key]) 获取KEY对应的响应头信息，例如：xhr.getResponseHeader(‘date’)就是在获取响应有中的服务器时间</p>
+<p>  xhr.open() 打开URL请求<br>  xhr.overrideMimeType() 重写MIME类型<br>  xhr.send() 发送AJAX请求<br>  xhr.setRequestHeader() 设置请求头</p>
 
       
 
@@ -308,7 +311,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/30/定时器/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/10/AJAX/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -322,18 +325,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/30/回调函数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          回调函数]
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/30/继承/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">继承</div>
+    <a href="/2019/10/09/前端开发性能优化方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端开发性能优化方案</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -360,7 +354,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用定时器"><span class="toc-number">1.</span> <span class="toc-text">常用定时器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#清除定时器"><span class="toc-number">2.</span> <span class="toc-text">清除定时器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中的同步编程和异步编程"><span class="toc-number">3.</span> <span class="toc-text">JS中的同步编程和异步编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中的异步编程"><span class="toc-number">4.</span> <span class="toc-text">JS中的异步编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器是如何规划同步异步机制的"><span class="toc-number">5.</span> <span class="toc-text">浏览器是如何规划同步异步机制的</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、什么是AJAX"><span class="toc-number">1.</span> <span class="toc-text">一、什么是AJAX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、AJAX操作"><span class="toc-number">2.</span> <span class="toc-text">二、AJAX操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、关于HTTP请求方式的一点学习"><span class="toc-number">3.</span> <span class="toc-text">三、关于HTTP请求方式的一点学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、GET-VS-POST"><span class="toc-number">4.</span> <span class="toc-text">四、GET VS POST</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、AJAX状态-READY-STATE"><span class="toc-number">5.</span> <span class="toc-text">五、AJAX状态(READY-STATE)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、HTTP网络状态码-STATUS"><span class="toc-number">6.</span> <span class="toc-text">六、HTTP网络状态码(STATUS)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七、AJAX的属性和方法"><span class="toc-number">7.</span> <span class="toc-text">七、AJAX的属性和方法</span></a></li></ol>
                     </div>
                 </span>
             </div>
