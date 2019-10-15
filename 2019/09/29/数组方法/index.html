@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/09/29/数组方法/index.html">
 <meta property="og:site_name">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-14T10:51:27.829Z">
+<meta property="og:updated_time" content="2019-10-15T01:35:45.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数组方法">
   
@@ -246,17 +246,18 @@
 
 <h3 id="find寻找"><a href="#find寻找" class="headerlink" title="find寻找"></a><strong>find寻找</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">12</span>,<span class="number">23</span>,<span class="number">34</span>].find(<span class="function"><span class="params">item</span>=&gt;</span>item&gt;<span class="number">12</span>);<span class="comment">//23</span></span><br></pre></td></tr></table></figure>
 
-<hr>
-<h2 id="ES6新增："><a href="#ES6新增：" class="headerlink" title="ES6新增："></a>ES6新增：</h2><h3 id="some"><a href="#some" class="headerlink" title="some"></a>some</h3><p>遍历数组，回调函数中只要有一个返回值是true，some的返回值就是true，反正为false</p>
+<h3 id="some"><a href="#some" class="headerlink" title="some"></a>some</h3><p>遍历数组，回调函数中只要有一个返回值是true，some的返回值就是true，反之为false</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ary=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">'a'</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(ary.some(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">typeof</span> item === <span class="string">'string'</span>;</span><br><span class="line">    &#125;));<span class="comment">//ture</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="every"><a href="#every" class="headerlink" title="every"></a>every</h3><p>遍历数组，当且仅当回调函数返回值都是true，every的返回值就是true，反正为false</p>
+<h3 id="every"><a href="#every" class="headerlink" title="every"></a>every</h3><p>遍历数组，当且仅当回调函数返回值都是true，every的返回值就是true，反之为false</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ary=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">'a'</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(ary.every(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">typeof</span> item === <span class="string">'string'</span>;</span><br><span class="line">    &#125;));<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><p>每一次遍历都是数组的前后两项</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> ary = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">    ary.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev,item</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(prev, item);</span><br><span class="line">        <span class="keyword">return</span> item;<span class="comment">//把返回值传递给下一次遍历的prev</span></span><br><span class="line">    &#125;,<span class="number">1000</span><span class="comment">/* 定义初始的prev，这个参数不写默认prev是第一项 */</span>);</span><br><span class="line"><span class="comment">//1000 1</span></span><br><span class="line"><span class="comment">//1 2</span></span><br><span class="line"><span class="comment">//2 3</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3>
+<h3 id="includes"><a href="#includes" class="headerlink" title="includes"></a>includes</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">arr.includes(<span class="number">6</span>);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -409,7 +410,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#push"><span class="toc-number">1.</span> <span class="toc-text">push</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pop"><span class="toc-number">2.</span> <span class="toc-text">pop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shift"><span class="toc-number">3.</span> <span class="toc-text">shift</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unshift"><span class="toc-number">4.</span> <span class="toc-text">unshift</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#splice"><span class="toc-number">5.</span> <span class="toc-text">splice</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slice"><span class="toc-number">6.</span> <span class="toc-text">slice</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#concat"><span class="toc-number">7.</span> <span class="toc-text">concat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#toString-NaN"><span class="toc-number">8.</span> <span class="toc-text">toString</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#join"><span class="toc-number">9.</span> <span class="toc-text">join</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse"><span class="toc-number">10.</span> <span class="toc-text">reverse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort"><span class="toc-number">11.</span> <span class="toc-text">sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#indexOf-lastIndexOf"><span class="toc-number">12.</span> <span class="toc-text">indexOf / lastIndexOf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#forEach遍历"><span class="toc-number">13.</span> <span class="toc-text">forEach遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map映射"><span class="toc-number">14.</span> <span class="toc-text">map映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filter过滤"><span class="toc-number">15.</span> <span class="toc-text">filter过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find寻找"><span class="toc-number">16.</span> <span class="toc-text">find寻找</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6新增："><span class="toc-number"></span> <span class="toc-text">ES6新增：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#some"><span class="toc-number">1.</span> <span class="toc-text">some</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#every"><span class="toc-number">2.</span> <span class="toc-text">every</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reduce"><span class="toc-number">3.</span> <span class="toc-text">reduce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set"><span class="toc-number">4.</span> <span class="toc-text">Set</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#push"><span class="toc-number">1.</span> <span class="toc-text">push</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pop"><span class="toc-number">2.</span> <span class="toc-text">pop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shift"><span class="toc-number">3.</span> <span class="toc-text">shift</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unshift"><span class="toc-number">4.</span> <span class="toc-text">unshift</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#splice"><span class="toc-number">5.</span> <span class="toc-text">splice</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slice"><span class="toc-number">6.</span> <span class="toc-text">slice</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#concat"><span class="toc-number">7.</span> <span class="toc-text">concat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#toString-NaN"><span class="toc-number">8.</span> <span class="toc-text">toString</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#join"><span class="toc-number">9.</span> <span class="toc-text">join</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse"><span class="toc-number">10.</span> <span class="toc-text">reverse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort"><span class="toc-number">11.</span> <span class="toc-text">sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#indexOf-lastIndexOf"><span class="toc-number">12.</span> <span class="toc-text">indexOf / lastIndexOf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#forEach遍历"><span class="toc-number">13.</span> <span class="toc-text">forEach遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map映射"><span class="toc-number">14.</span> <span class="toc-text">map映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filter过滤"><span class="toc-number">15.</span> <span class="toc-text">filter过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find寻找"><span class="toc-number">16.</span> <span class="toc-text">find寻找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#some"><span class="toc-number">17.</span> <span class="toc-text">some</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#every"><span class="toc-number">18.</span> <span class="toc-text">every</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reduce"><span class="toc-number">19.</span> <span class="toc-text">reduce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#includes"><span class="toc-number">20.</span> <span class="toc-text">includes</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -521,19 +522,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JAVASCRIPT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color1">JAVASCRIPT</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
